@@ -1,0 +1,160 @@
+{
+  "profile": {
+    "role": "Sviluppatore full-stack",
+    "tagline": "SVILUPPO & INGEGNERIA DEL SOFTWARE",
+    "pitch": "Esperto nello sviluppo di API REST sicure con Express e PostgreSQL, nella gestione dello stato lato server con TanStack Query e nel rilascio di applicazioni full-stack con Docker e CI/CD automatizzata.",
+    "about": "Sviluppatore full-stack appassionato nel collegare un’architettura front-end pulita a una logica back-end solida. Ho portato la mia app UrConnections da un prototipo React + Supabase a un monorepo TypeScript con una propria API Express, un database PostgreSQL, autenticazione e configurazione Docker, e l’ho pubblicata sul mio VPS con CI/CD. Mi concentro su codice manutenibile e testato, interfacce responsive e applicazioni web centrate sull’utente."
+  },
+  "highlights": {
+    "core": "Stack principale",
+    "fullstack": "API REST & PostgreSQL",
+    "typescript": "Tipizzazione rigorosa, dal front al back",
+    "docker": "CI/CD & deploy su VPS"
+  },
+  "skillGroups": {
+    "frontend": "Front-end",
+    "backend": "Back-end & database",
+    "devops": "DevOps & deploy",
+    "tools": "Strumenti & concetti"
+  },
+  "projects": {
+    "urconnection": {
+      "title": "UrConnections — App full-stack",
+      "category": "FULL-STACK / APP SOCIAL",
+      "archiveCategory": "FULL-STACK / APPLICAZIONE WEB",
+      "summary": "Gruppi di studio e di interesse per tema, luogo e piattaforma. Un monorepo TypeScript con una propria API Express, PostgreSQL, autenticazione e Docker, in self-hosting su un VPS.",
+      "archiveSummary": "Un’app social in self-hosting con una propria API, accesso (e-mail + Google), foto profilo e deploy automatizzato.",
+      "caseStudy": {
+        "title": "UrConnections — App social full-stack",
+        "intro": "Permette di trovare gruppi di studio e di interesse per tema, paese, città e piattaforma (WhatsApp, Discord, Telegram…), di crearne di propri e di gestire il proprio profilo. Ricostruita da un prototipo Supabase in uno stack TypeScript interamente in self-hosting.",
+        "role": "Sviluppatore full-stack",
+        "overviewTitle": "Panoramica del progetto & sfida",
+        "overview": [
+          {
+            "heading": "Da un prototipo Supabase al mio stack",
+            "body": "La versione 1 era un’app React su Supabase e Vercel. L’ho ricostruita passo dopo passo come monorepo TypeScript: un front-end React 19, un’API Express 5 con PostgreSQL (Kysely e migrazioni SQL) e schemi Zod condivisi tra i due, così che browser e server convalidino i dati allo stesso modo. Gli account supportano la registrazione via e-mail con verifica, il reset della password e l’accesso con Google. Solo chi crea un gruppo può modificarlo o eliminarlo, e le foto profilo vengono verificate, ridimensionate in WebP e salvate in uno storage compatibile con S3. Il caricamento differito di pagine e dati ha portato il punteggio Lighthouse da mobile da circa 80 a 96."
+          },
+          {
+            "heading": "Sicurezza e gestione in prima persona",
+            "body": "La sicurezza risiede nell’API: hashing delle password con argon2id, token di sessione hashati in cookie httpOnly, controlli CSRF, limiti di richieste, OAuth di Google con PKCE e verifica della proprietà in ogni query SQL, il tutto coperto da test con Vitest e Supertest. L’app gira in Docker su un VPS Linux protetto, dietro Caddy, con HTTPS automatico e una Content Security Policy rigorosa. GitHub Actions esegue lint, controllo dei tipi, test e build a ogni push, poi distribuisce ogni release sul server. I backup notturni del database e le foto profilo vengono copiati fuori sede su Cloudflare R2, e il ripristino di entrambi è stato verificato."
+          }
+        ],
+        "showcaseCaption": "DESKTOP / MOBILE / COMPONENTI · VISTE ILLUSTRATIVE DELL’INTERFACCIA"
+      }
+    },
+    "harmonysmiles": {
+      "title": "HarmonySmiles — Sistema di prenotazione per studi",
+      "category": "FULL-STACK / PRENOTAZIONI SANITARIE",
+      "archiveCategory": "BACK-END / PRENOTAZIONI DELLO STUDIO",
+      "summary": "Prenotazione online e dashboard di amministrazione per uno studio dentistico in Svizzera. Ho sviluppato l’API REST in TypeScript con Express e PostgreSQL, il flusso di prenotazione in tempo reale e le pagine di amministrazione, e ho pubblicato tutto su Render.",
+      "archiveSummary": "Un sistema di prenotazione per studio dentistico con fasce orarie in tempo reale, protezione dalle doppie prenotazioni e una dashboard sicura per appuntamenti e pazienti.",
+      "caseStudy": {
+        "title": "HarmonySmiles — Sistema di prenotazione per studio dentistico",
+        "intro": "Prenotazione online degli appuntamenti per uno studio dentistico in Svizzera, con disponibilità in tempo reale per i pazienti e una dashboard sicura in cui il personale gestisce appuntamenti e cartelle dei pazienti. Un progetto di gruppo: ho sviluppato il back-end, il flusso di prenotazione e la dashboard di amministrazione.",
+        "role": "Sviluppatore back-end & full-stack",
+        "overviewTitle": "Panoramica del progetto & aspetti tecnici",
+        "overview": [
+          {
+            "heading": "Prenotazioni senza sovrapposizioni",
+            "body": "I pazienti scelgono una data e vedono in tempo reale le fasce libere da 30 minuti, calcolate nel fuso orario dello studio (Europe/Zurich), con i fine settimana chiusi e prenotazioni possibili fino a un mese prima. L’API REST è scritta in TypeScript su Express 5, con SQL parametrizzato scritto a mano su PostgreSQL. Un indice univoco parziale rende impossibili le doppie prenotazioni a livello di database, pur consentendo di prenotare di nuovo una fascia annullata; ogni prenotazione crea o riutilizza la scheda del paziente all’interno di un’unica transazione. Ogni richiesta viene convalidata con Zod e un gestore centrale degli errori trasforma i problemi in risposte chiare."
+          },
+          {
+            "heading": "Una dashboard sicura per il team dello studio",
+            "body": "Il personale accede con password hashate tramite bcrypt e token JWT. Ogni rotta di amministrazione è protetta per impostazione predefinita, e un nome utente errato viene respinto con la stessa rapidità di una password errata, così gli account non possono essere individuati dai tempi di risposta. Dalla dashboard il personale conferma o annulla gli appuntamenti, li segna come completati o come mancata presentazione una volta trascorso l’orario, filtra per stato o periodo e apre il profilo di ogni paziente con le visite future e passate. Numeri di cartella ed età vengono calcolati automaticamente. Ho inoltre pubblicato l’API, il database PostgreSQL e il sito su Render."
+          }
+        ],
+        "showcaseCaption": "DESKTOP / PRENOTAZIONE DA MOBILE / ADMIN · SCHERMATE REALI & INTERFACCIA ILLUSTRATIVA"
+      }
+    },
+    "practical-tasks": {
+      "title": "Practical Tasks — Gestione attività",
+      "category": "FRONT-END / GESTIONE ATTIVITÀ",
+      "summary": "App dinamica per la gestione delle attività realizzata con JavaScript e Tailwind CSS, con salvataggio nel local storage.",
+      "archiveSummary": "Un gestore di attività realizzato con JavaScript e Tailwind, con salvataggio nel local storage.",
+      "caseStudy": {
+        "title": "Practical Tasks — Gestione attività",
+        "intro": "Una soluzione dinamica per la gestione delle attività, senza framework, incentrata sulle prestazioni e sul salvataggio nel local storage.",
+        "role": "Sviluppatore front-end",
+        "overviewTitle": "Panoramica del progetto & aspetti tecnici",
+        "overview": [
+          {
+            "heading": "Riscontro immediato, senza framework",
+            "body": "Practical Tasks è un gestore di attività lato client realizzato con JavaScript puro, Tailwind CSS e HTML5/CSS3. La manipolazione del DOM mantiene l’elenco reattivo alle azioni dell’utente: aggiungere un’attività o cambiarne lo stato aggiorna subito l’interfaccia. I filtri separano le attività in corso da quelle completate. Questo legame diretto tra un’azione e il suo risultato sullo schermo rende la gestione quotidiana delle attività chiara e mirata."
+          },
+          {
+            "heading": "Dati che restano tra una sessione e l’altra",
+            "body": "Il local storage conserva le attività nel browser, così l’elenco resta disponibile quando si torna in un secondo momento. La sfida tecnica è mantenere sincronizzati i dati salvati e la vista del DOM a ogni modifica, invece di lasciare l’interfaccia in uno stato non aggiornato. Un layout responsive mantiene leggibili campi, filtri ed elementi dell’elenco su ogni dimensione di schermo, mentre l’approccio senza framework resta concentrato sull’interazione lato client."
+          }
+        ],
+        "showcaseCaption": "DASHBOARD / INTERFACCIA SCURA / FILTRI · VISTE ILLUSTRATIVE DELL’INTERFACCIA"
+      }
+    },
+    "personal-portfolio": {
+      "title": "Portfolio personale — Dal design al codice",
+      "category": "FRONT-END / DAL DESIGN AL CODICE",
+      "summary": "Questo sito: un design Figma professionale trasformato in un sito React e Tailwind veloce e responsive, fedele al design fin nelle spaziature, nella tipografia e nelle animazioni.",
+      "caseStudy": {
+        "title": "Portfolio personale — Dal design al codice",
+        "intro": "Proprio questo sito. Un design Figma professionale, realizzato come sito React veloce e responsive che resta fedele al design dagli smartphone più piccoli ai monitor più grandi.",
+        "role": "Sviluppatore front-end",
+        "overviewTitle": "Panoramica del progetto & aspetti tecnici",
+        "overview": [
+          {
+            "heading": "Fedele al design",
+            "body": "Ho lavorato direttamente sul file Figma, riprendendo dai frame layout, spaziature, colori e tipografia. La palette, i due caratteri (Cormorant Garamond e Inter) e i breakpoint sono diventati design token di Tailwind v4, così ogni pagina attinge da un’unica fonte. Gli elementi ricorrenti come schede, tag, pulsanti e link sono diventati piccoli componenti React, e tutti i progetti si trovano in un unico file di dati: aggiungerne uno non tocca mai il layout. Dove il design lasciava spazio, come gli stati al passaggio del mouse, il menu mobile e la navigazione tra i casi studio, l’ho esteso con lo stesso linguaggio visivo: accenti cremisi, leggeri sollevamenti e linee che si disegnano."
+          },
+          {
+            "heading": "Responsive, veloce e pronto per la produzione",
+            "body": "Su smartphone la barra laterale fissa diventa una barra superiore con menu a schermo intero, e ogni pagina è stata verificata dagli smartphone più piccoli ai monitor più ampi. Le immagini vengono ridimensionate e servite in WebP, riducendone il peso da circa 1,5 MB a 130 KB, e i file di build memorizzati a lungo nella cache rendono istantanee le visite successive. Il sito rispetta il focus da tastiera e l’impostazione di riduzione del movimento, è servito con una Content Security Policy rigorosa e con header di sicurezza, e offre titoli per ogni pagina e anteprime dei link per la condivisione. Disponibile in italiano, tedesco, francese e inglese, è pubblicato su Vercel con il mio dominio, con DNS su Cloudflare."
+          }
+        ],
+        "showcaseCaption": "DESKTOP / MOBILE / DESIGN TOKEN · SCHERMATE REALI"
+      }
+    }
+  },
+  "previews": {
+    "urconnection": "Pagina iniziale di UrConnections",
+    "harmonysmiles": "Pagina iniziale dello studio HarmonySmiles"
+  },
+  "showcase": {
+    "urconnection": {
+      "desktopAlt": "Pagina iniziale di UrConnections su desktop",
+      "mobileAlt": "Schermata di accesso di UrConnections su smartphone",
+      "syncTitle": "Un profilo sempre coerente",
+      "syncText": "I dati dell’account e le modifiche al profilo restano sincronizzati in tutta l’interfaccia."
+    },
+    "harmonysmiles": {
+      "desktopAlt": "Pagina iniziale di HarmonySmiles su desktop",
+      "mobileAlt": "Modulo di prenotazione di HarmonySmiles su smartphone",
+      "slotsLabel": "DISPONIBILITÀ IN TEMPO REALE",
+      "slotsNote": "FASCE DA 30 MIN · ORA DI ZURIGO · NESSUNA DOPPIA PRENOTAZIONE",
+      "statusTitle": "Stato dell’appuntamento",
+      "statusLabel": "ADMIN",
+      "statusNote": "«Completato» e «mancata presentazione» si possono impostare solo dopo l’orario della visita."
+    },
+    "practicalTasks": {
+      "filterTitle": "Una vista più chiara",
+      "filterLabel": "STUDIO DEI FILTRI",
+      "filterNote": "Sono visibili solo le attività completate.",
+      "storageTitle": "Si riprende da dove ci si era fermati.",
+      "storageText": "Le attività restano in questo browser tra una sessione e l’altra, grazie al local storage.",
+      "storageLabel": "LATO CLIENT / SENZA FRAMEWORK"
+    },
+    "portfolio": {
+      "desktopAlt": "Home del portfolio su desktop",
+      "mobileAlt": "Home del portfolio su smartphone",
+      "tokensTitle": "Design token",
+      "tokensLabel": "FIGMA → TAILWIND",
+      "screensTitle": "Un design, ogni schermo",
+      "screensLabel": "RESPONSIVE",
+      "phone": "Smartphone",
+      "phoneText": "barra superiore + menu",
+      "tablet": "Tablet",
+      "tabletText": "griglie a 2 colonne",
+      "desktop": "Desktop",
+      "desktopText": "barra laterale fissa",
+      "wide": "Schermo ampio",
+      "wideText": "contenuto centrato"
+    }
+  }
+}

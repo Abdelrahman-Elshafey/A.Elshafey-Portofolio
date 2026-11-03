@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import urconnectionDesktop from '../assets/images/urconnection-desktop.webp';
 import harmonySmilesDesktop from '../assets/images/harmonysmiles-desktop.webp';
 import logo from '../assets/images/logo.webp';
@@ -16,11 +17,13 @@ function ScreenshotPreview({ src, alt }) {
 }
 
 function UrConnectionPreview() {
-  return <ScreenshotPreview src={urconnectionDesktop} alt="UrConnections landing page" />;
+  const { t } = useTranslation('content');
+  return <ScreenshotPreview src={urconnectionDesktop} alt={t('previews.urconnection')} />;
 }
 
 function HarmonySmilesPreview() {
-  return <ScreenshotPreview src={harmonySmilesDesktop} alt="HarmonySmiles clinic home page" />;
+  const { t } = useTranslation('content');
+  return <ScreenshotPreview src={harmonySmilesDesktop} alt={t('previews.harmonysmiles')} />;
 }
 
 function TasksDashboardPreview() {

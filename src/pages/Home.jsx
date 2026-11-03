@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
+import { useTranslation } from 'react-i18next';
+import LanguageSwitcher from '../components/LanguageSwitcher.jsx';
 import ProjectCard from '../components/ProjectCard.jsx';
 import { ArrowIcon, Card, PageFooter, PillLink, TagList, Underline } from '../components/ui.jsx';
 import { highlights, profile, skillGroups } from '../data/profile.js';
 import { featuredProjects } from '../data/projects.js';
+import { useLocale } from '../lib/locale.js';
 import { usePageMeta } from '../lib/usePageMeta.js';
 import portrait from '../assets/images/portrait.webp';
-import statusDot from '../assets/icons/status-dot.svg';
 import arrowRed from '../assets/icons/arrow-red.svg';
 import arrowWhite from '../assets/icons/arrow-white.svg';
 import arrowUpRight from '../assets/icons/arrow-up-right.svg';
@@ -16,6 +18,7 @@ const cardHeading = 'font-serif text-[clamp(30px,3.2vw,40px)] font-medium leadin
 const pair = 'grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2';
 
 function CopyEmailButton({ email }) {
+  const { t } = useTranslation();
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
@@ -48,29 +51,28 @@ function CopyEmailButton({ email }) {
             : 'border-line text-muted group-hover:border-accent/30 group-hover:text-white'
         }`}
       >
-        {copied ? 'Copied ✓' : 'Copy'}
+        {copied ? t('home.copied') : t('home.copy')}
       </span>
     </button>
   );
 }
 
 export default function Home() {
+  const { t } = useTranslation();
+  const { to } = useLocale();
   usePageMeta();
 
   return (
     <div className="flex flex-col gap-8 sm:gap-9">
       <header className="flex min-h-6 flex-wrap items-center justify-between gap-x-6 gap-y-2">
-        <p className="text-[11px] text-muted">{profile.tagline}</p>
-        <p className="flex items-center gap-2 text-[12px] text-muted">
-          <img className="animate-pulse-soft" src={statusDot} alt="" width="6" height="6" />
-          {profile.availability}
-        </p>
+        <p className="text-[11px] text-muted">{t('content:profile.tagline')}</p>
+        <LanguageSwitcher />
       </header>
 
       <section className="flex flex-col gap-4 sm:gap-6" aria-labelledby="intro-title">
         <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-3">
           <h1 id="intro-title" className="font-serif text-[clamp(38px,5vw,56px)] font-medium leading-[1.04]">
-            {profile.role}
+            {t('content:profile.role')}
           </h1>
           <a
             href={profile.links.github}
@@ -87,7 +89,7 @@ export default function Home() {
           {highlights.map((item) => (
             <Card
               as="li"
-              key={item.title}
+              key={item.key}
               className="group flex flex-col gap-3 p-6 font-medium sm:min-h-[180px] 2xl:min-h-[252px]"
             >
               {/* Crimson top line that draws in on hover. */}
@@ -98,17 +100,17 @@ export default function Home() {
               <p className="font-serif text-[38px] leading-none min-[381px]:text-[44px] sm:text-[clamp(40px,5vw,56px)] 2xl:text-[min(56px,3.2vw)]">
                 {item.title}
               </p>
-              <p className="text-[13px]">{item.caption}</p>
+              <p className="text-[13px]">{t(`content:highlights.${item.key}`)}</p>
             </Card>
           ))}
         </ul>
 
         <div className={pair}>
           <Card className="flex flex-col items-start gap-5 p-6 sm:p-8 md:min-h-[320px]">
-            <h2 className={cardHeading}>Building scalable &amp; user-centric web applications.</h2>
-            <p className="text-[15px] leading-[1.7] text-muted">{profile.pitch}</p>
+            <h2 className={cardHeading}>{t('home.pitchTitle')}</h2>
+            <p className="text-[15px] leading-[1.7] text-muted">{t('content:profile.pitch')}</p>
             <PillLink variant="accent" size="sm" href={profile.links.github} target="_blank" rel="noreferrer">
-              View Resume / GitHub &gt;
+              {t('home.resumeLink')}
               <ArrowIcon src={arrowRed} />
             </PillLink>
           </Card>
@@ -116,7 +118,7 @@ export default function Home() {
             <img
               className="-mt-1 -mb-[22px] size-[200px] transition-[scale,rotate] duration-500 ease-out-soft group-hover:scale-[1.04] group-hover:-rotate-1 sm:-mb-7 sm:size-[252px]"
               src={portrait}
-              alt={`Portrait of ${profile.name}`}
+              alt={t('home.portraitAlt', { name: profile.name })}
               width="252"
               height="252"
             />
@@ -126,15 +128,15 @@ export default function Home() {
 
       <section className="flex flex-col gap-4" aria-labelledby="featured-title">
         <h2 id="featured-title" className={sectionTitle}>
-          Featured Projects
+          {t('home.featuredTitle')}
         </h2>
-        <div className="flex min-h-8 items-center justify-between">
-          <h3 className="font-serif text-[24px] sm:text-[28px]">Selected work</h3>
+        <div className="flex min-h-8 items-center justify-between gap-4">
+          <h3 className="font-serif text-[24px] sm:text-[28px]">{t('home.selectedWork')}</h3>
           <Link
-            to="/projects"
-            className="group inline-flex items-center gap-2 text-[12px] text-muted transition-colors hover:text-white"
+            to={to('/projects')}
+            className="group inline-flex shrink-0 items-center gap-2 text-[12px] text-muted transition-colors hover:text-white"
           >
-            <Underline>All projects</Underline>
+            <Underline>{t('home.allProjects')}</Underline>
             <ArrowIcon src={arrowUpRight} />
           </Link>
         </div>
@@ -152,23 +154,23 @@ export default function Home() {
         aria-labelledby="about-title"
       >
         <h2 id="about-title" className={sectionTitle}>
-          About &amp; Skills
+          {t('home.aboutTitle')}
         </h2>
         <div className={pair}>
           <Card className="flex flex-col gap-6 p-6 sm:p-8 md:min-h-[360px]">
-            <h3 className="font-serif text-[32px] font-medium leading-[1.1]">Technical Expertise &amp; Stack</h3>
+            <h3 className="font-serif text-[32px] font-medium leading-[1.1]">{t('home.expertiseTitle')}</h3>
             <div className="flex flex-col gap-5">
               {skillGroups.map((group) => (
-                <div key={group.name} className="flex flex-col gap-3">
-                  <h4 className="text-[11px] font-semibold text-muted">{group.name}</h4>
+                <div key={group.key} className="flex flex-col gap-3">
+                  <h4 className="text-[11px] font-semibold text-muted">{t(`content:skillGroups.${group.key}`)}</h4>
                   <TagList items={group.skills} />
                 </div>
               ))}
             </div>
           </Card>
           <Card className="flex flex-col gap-6 p-6 sm:p-8 md:min-h-[360px]">
-            <h3 className="font-serif text-[32px] font-medium leading-[1.1]">About Me</h3>
-            <p className="text-[15px] leading-[1.6]">{profile.about}</p>
+            <h3 className="font-serif text-[32px] font-medium leading-[1.1]">{t('home.aboutMe')}</h3>
+            <p className="text-[15px] leading-[1.6]">{t('content:profile.about')}</p>
           </Card>
         </div>
       </section>
@@ -180,15 +182,13 @@ export default function Home() {
       >
         <div className="flex flex-col gap-3">
           <h2 id="contact-title" className={cardHeading}>
-            Let&apos;s build something exceptional together.
+            {t('home.ctaTitle')}
           </h2>
-          <p className="text-[15px] leading-[1.6] text-muted">
-            Available for full-stack roles and exciting web projects.
-          </p>
+          <p className="text-[15px] leading-[1.6] text-muted">{t('home.ctaText')}</p>
         </div>
         <div className="flex flex-col items-stretch gap-4 sm:flex-row sm:flex-wrap sm:items-center">
           <PillLink size="lg" className="justify-center" href={`mailto:${profile.email}`}>
-            Get in touch / Email Me
+            {t('home.ctaButton')}
             <ArrowIcon src={arrowWhite} />
           </PillLink>
           <CopyEmailButton email={profile.email} />

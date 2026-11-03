@@ -1,0 +1,59 @@
+{
+  "meta": {
+    "homeDescription": "Abdelrahman Hamed — Développeur full-stack qui crée des applications web sécurisées et évolutives avec React, TypeScript, Node.js, PostgreSQL et Docker.",
+    "caseStudyTitle": "{{name}} — Étude de cas"
+  },
+  "nav": {
+    "main": "Navigation principale",
+    "home": "Accueil",
+    "projects": "Projets",
+    "about": "À propos",
+    "contact": "Contact",
+    "homeLink": "{{name}} — accueil",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu"
+  },
+  "language": {
+    "label": "Langue"
+  },
+  "home": {
+    "pitchTitle": "Je crée des applications web évolutives et centrées sur l’utilisateur.",
+    "resumeLink": "Voir le CV / GitHub >",
+    "portraitAlt": "Portrait de {{name}}",
+    "featuredTitle": "Projets à la une",
+    "selectedWork": "Travaux choisis",
+    "allProjects": "Tous les projets",
+    "aboutTitle": "À propos & compétences",
+    "expertiseTitle": "Expertise technique & stack",
+    "aboutMe": "À propos de moi",
+    "ctaTitle": "Construisons ensemble quelque chose d’exceptionnel.",
+    "ctaText": "Disponible pour des postes full-stack et des projets web stimulants.",
+    "ctaButton": "Me contacter / Envoyer un e-mail",
+    "copy": "Copier",
+    "copied": "Copié ✓"
+  },
+  "projects": {
+    "backHome": "Retour à l’accueil",
+    "archive": "ARCHIVE DES PROJETS / {{number}}",
+    "title": "Tous les projets",
+    "intro": "Une archive complète d’applications web, de projets full-stack et de projets personnels concrets."
+  },
+  "card": {
+    "viewCaseStudy": "Voir l’étude de cas",
+    "codeOnGithub": "{{title}} : code sur GitHub",
+    "liveApp": "{{title}} : application en ligne"
+  },
+  "caseStudy": {
+    "back": "Retour à tous les projets",
+    "keyDetails": "Informations clés",
+    "role": "RÔLE",
+    "stack": "STACK TECHNIQUE",
+    "liveApp": "Application en ligne",
+    "repo": "Dépôt GitHub",
+    "showcase": "Captures d’écran / Vitrine",
+    "next": "ÉTUDE DE CAS SUIVANTE"
+  },
+  "footer": {
+    "tagline": "Pensé avec soin. Construit avec précision."
+  }
+}

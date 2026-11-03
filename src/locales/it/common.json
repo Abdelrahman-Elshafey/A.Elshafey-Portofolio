@@ -1,0 +1,59 @@
+{
+  "meta": {
+    "homeDescription": "Abdelrahman Hamed — Sviluppatore full-stack che realizza applicazioni web sicure e scalabili con React, TypeScript, Node.js, PostgreSQL e Docker.",
+    "caseStudyTitle": "{{name}} — Caso studio"
+  },
+  "nav": {
+    "main": "Navigazione principale",
+    "home": "Home",
+    "projects": "Progetti",
+    "about": "Chi sono",
+    "contact": "Contatti",
+    "homeLink": "{{name}} — home",
+    "openMenu": "Apri il menu",
+    "closeMenu": "Chiudi il menu"
+  },
+  "language": {
+    "label": "Lingua"
+  },
+  "home": {
+    "pitchTitle": "Sviluppo applicazioni web scalabili e centrate sull’utente.",
+    "resumeLink": "Vedi CV / GitHub >",
+    "portraitAlt": "Ritratto di {{name}}",
+    "featuredTitle": "Progetti in evidenza",
+    "selectedWork": "Lavori selezionati",
+    "allProjects": "Tutti i progetti",
+    "aboutTitle": "Chi sono & competenze",
+    "expertiseTitle": "Competenze tecniche & stack",
+    "aboutMe": "Chi sono",
+    "ctaTitle": "Costruiamo insieme qualcosa di eccezionale.",
+    "ctaText": "Disponibile per ruoli full-stack e progetti web stimolanti.",
+    "ctaButton": "Mettiamoci in contatto / E-mail",
+    "copy": "Copia",
+    "copied": "Copiato ✓"
+  },
+  "projects": {
+    "backHome": "Torna alla home",
+    "archive": "ARCHIVIO PROGETTI / {{number}}",
+    "title": "Tutti i progetti",
+    "intro": "Un archivio completo di applicazioni web, progetti full-stack e progetti personali concreti."
+  },
+  "card": {
+    "viewCaseStudy": "Vedi il caso studio",
+    "codeOnGithub": "{{title}}: codice su GitHub",
+    "liveApp": "{{title}}: app online"
+  },
+  "caseStudy": {
+    "back": "Torna a tutti i progetti",
+    "keyDetails": "Dati principali",
+    "role": "RUOLO",
+    "stack": "STACK TECNOLOGICO",
+    "liveApp": "App online",
+    "repo": "Repository GitHub",
+    "showcase": "Screenshot / Vetrina",
+    "next": "PROSSIMO CASO STUDIO"
+  },
+  "footer": {
+    "tagline": "Progettato con cura. Realizzato con precisione."
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "profile": {
+    "role": "Full-Stack-Entwickler",
+    "tagline": "SOFTWAREENTWICKLUNG & ENGINEERING",
+    "pitch": "Erfahren in der Entwicklung sicherer REST-APIs mit Express und PostgreSQL, im Verwalten von Server-State mit TanStack Query und im Ausliefern von Full-Stack-Anwendungen mit Docker und automatisiertem CI/CD.",
+    "about": "Full-Stack-Entwickler mit Leidenschaft dafür, saubere Frontend-Architektur und robuste Backend-Logik zu verbinden. Meine App UrConnections habe ich von einem Prototyp mit React und Supabase zu einem TypeScript-Monorepo mit eigener Express-API, PostgreSQL-Datenbank, Authentifizierung und Docker-Setup weiterentwickelt und mit CI/CD auf meinem eigenen VPS bereitgestellt. Mein Fokus: wartbarer, getesteter Code, responsive Oberflächen und nutzerzentrierte Webanwendungen."
+  },
+  "highlights": {
+    "core": "Kern-Stack",
+    "fullstack": "REST-APIs & PostgreSQL",
+    "typescript": "Strikte Typen, von vorne bis hinten",
+    "docker": "CI/CD & VPS-Deployment"
+  },
+  "skillGroups": {
+    "frontend": "Frontend",
+    "backend": "Backend & Datenbanken",
+    "devops": "DevOps & Deployment",
+    "tools": "Tools & Konzepte"
+  },
+  "projects": {
+    "urconnection": {
+      "title": "UrConnections — Full-Stack-App",
+      "category": "FULL-STACK / SOCIAL APP",
+      "archiveCategory": "FULL-STACK / WEBANWENDUNG",
+      "summary": "Lern- und Interessengruppen nach Thema, Ort und Plattform finden. Ein TypeScript-Monorepo mit eigener Express-API, PostgreSQL, Authentifizierung und Docker, selbst gehostet auf einem VPS.",
+      "archiveSummary": "Eine selbst gehostete Social App mit eigener API, Anmeldung (E-Mail + Google), Profilfotos und automatisiertem Deployment.",
+      "caseStudy": {
+        "title": "UrConnections — Full-Stack Social App",
+        "intro": "Lern- und Interessengruppen nach Thema, Land, Stadt und Plattform (WhatsApp, Discord, Telegram …) finden, eigene Gruppen erstellen und das eigene Profil verwalten. Von einem Supabase-Prototyp zu einem vollständig selbst gehosteten TypeScript-Stack neu aufgebaut.",
+        "role": "Full-Stack-Entwickler",
+        "overviewTitle": "Projektüberblick & Herausforderung",
+        "overview": [
+          {
+            "heading": "Vom Supabase-Prototyp zum eigenen Stack",
+            "body": "Version 1 war eine React-App auf Supabase und Vercel. Ich habe sie Schritt für Schritt als TypeScript-Monorepo neu aufgebaut: ein React-19-Frontend, eine Express-5-API mit PostgreSQL (Kysely und SQL-Migrationen) sowie Zod-Schemas, die Browser und Server gemeinsam nutzen, damit beide Daten gleich validieren. Konten unterstützen die Registrierung per E-Mail mit Bestätigung, das Zurücksetzen des Passworts und die Anmeldung mit Google. Nur wer eine Gruppe erstellt hat, kann sie bearbeiten oder löschen, und Profilfotos werden geprüft, ins WebP-Format verkleinert und in S3-kompatiblem Speicher abgelegt. Lazy Loading von Seiten und Daten nach Bedarf hob den Lighthouse-Score auf Mobilgeräten von rund 80 auf 96."
+          },
+          {
+            "heading": "Sicherheit und Betrieb in Eigenregie",
+            "body": "Die Sicherheit liegt in der API: Passwort-Hashing mit argon2id, gehashte Session-Tokens in httpOnly-Cookies, CSRF-Prüfungen, Rate Limits, Google-OAuth mit PKCE und Eigentumsprüfungen direkt in jeder SQL-Abfrage – alles mit Tests in Vitest und Supertest abgedeckt. Die App läuft in Docker auf einem gehärteten Linux-VPS hinter Caddy, mit automatischem HTTPS und einer strikten Content Security Policy. GitHub Actions führt bei jedem Push Linting, Typprüfung, Tests und Build aus und stellt jedes Release auf dem Server bereit. Nächtliche Datenbank-Backups und Profilfotos werden extern in Cloudflare R2 gesichert, und die Wiederherstellung beider wurde getestet."
+          }
+        ],
+        "showcaseCaption": "DESKTOP / MOBIL / KOMPONENTEN · ILLUSTRATIVE UI-ANSICHTEN"
+      }
+    },
+    "harmonysmiles": {
+      "title": "HarmonySmiles — Buchungssystem für eine Praxis",
+      "category": "FULL-STACK / BUCHUNGEN IM GESUNDHEITSWESEN",
+      "archiveCategory": "BACKEND / PRAXIS-RESERVIERUNGEN",
+      "summary": "Online-Terminbuchung und ein Admin-Dashboard für eine Zahnarztpraxis in der Schweiz. Ich habe die TypeScript-REST-API mit Express und PostgreSQL, den Live-Buchungsablauf und die Admin-Seiten entwickelt und alles auf Render bereitgestellt.",
+      "archiveSummary": "Ein Reservierungssystem für eine Zahnarztpraxis mit Live-Zeitfenstern, Schutz vor Doppelbuchungen und einem sicheren Dashboard für Termine und Patienten.",
+      "caseStudy": {
+        "title": "HarmonySmiles — Buchungssystem für eine Zahnarztpraxis",
+        "intro": "Online-Terminbuchung für eine Zahnarztpraxis in der Schweiz – mit Live-Verfügbarkeit für Patientinnen und Patienten und einem sicheren Dashboard, in dem das Praxisteam Termine und Patientendaten verwaltet. Ein Teamprojekt: Ich habe das Backend, den Buchungsablauf und das Admin-Dashboard entwickelt.",
+        "role": "Backend- & Full-Stack-Entwickler",
+        "overviewTitle": "Projektüberblick & technische Highlights",
+        "overview": [
+          {
+            "heading": "Buchungen ohne Doppelbelegung",
+            "body": "Patientinnen und Patienten wählen ein Datum und sehen die freien 30-Minuten-Zeitfenster in Echtzeit – berechnet in der Zeitzone der Praxis (Europe/Zurich), mit geschlossenen Wochenenden und Buchungen bis höchstens einen Monat im Voraus. Die REST-API ist in TypeScript auf Express 5 geschrieben, mit handgeschriebenem, parametrisiertem SQL auf PostgreSQL. Ein partieller eindeutiger Index macht Doppelbuchungen auf Datenbankebene unmöglich und erlaubt trotzdem, ein storniertes Zeitfenster erneut zu buchen; jede Buchung legt den Patientendatensatz innerhalb einer einzigen Transaktion an oder verwendet ihn wieder. Jede Anfrage wird mit Zod validiert, und ein zentraler Error-Handler macht aus Fehlern klare Antworten."
+          },
+          {
+            "heading": "Ein sicheres Dashboard für das Praxisteam",
+            "body": "Das Team meldet sich mit bcrypt-gehashten Passwörtern und JWT-Tokens an. Jede Admin-Route ist standardmässig geschützt, und ein falscher Benutzername wird gleich schnell abgelehnt wie ein falsches Passwort, sodass sich Konten nicht über die Antwortzeit ermitteln lassen. Im Dashboard bestätigt oder storniert das Team Termine, markiert sie nach dem Termin als erledigt oder nicht erschienen, filtert nach Status oder Zeitraum und öffnet das Profil jeder Patientin und jedes Patienten mit kommenden und vergangenen Besuchen. Patientennummern und Alter werden automatisch berechnet. Zudem habe ich die API, die PostgreSQL-Datenbank und die Website auf Render bereitgestellt."
+          }
+        ],
+        "showcaseCaption": "DESKTOP / MOBILE BUCHUNG / ADMIN · ECHTE ANSICHTEN & ILLUSTRATIVE UI"
+      }
+    },
+    "practical-tasks": {
+      "title": "Practical Tasks — Aufgabenverwaltung",
+      "category": "FRONTEND / AUFGABENVERWALTUNG",
+      "summary": "Dynamische Aufgabenverwaltung mit JavaScript und Tailwind CSS, die Aufgaben im Local Storage speichert.",
+      "archiveSummary": "Eine Aufgabenverwaltung mit JavaScript und Tailwind, die Aufgaben im Local Storage sichert.",
+      "caseStudy": {
+        "title": "Practical Tasks — Aufgabenverwaltung",
+        "intro": "Eine dynamische Aufgabenverwaltung ohne Framework, mit Fokus auf Performance und dauerhafter Speicherung im Local Storage.",
+        "role": "Frontend-Entwickler",
+        "overviewTitle": "Projektüberblick & technische Highlights",
+        "overview": [
+          {
+            "heading": "Sofortiges Feedback, ganz ohne Framework",
+            "body": "Practical Tasks ist eine clientseitige Aufgabenverwaltung, gebaut mit Vanilla JavaScript, Tailwind CSS und HTML5/CSS3. DOM-Manipulation hält die Aufgabenliste reaktionsschnell: Wird eine Aufgabe hinzugefügt oder als erledigt markiert, aktualisiert sich die Oberfläche sofort. Filter trennen laufende von erledigten Aufgaben. Diese direkte Verbindung zwischen Aktion und sichtbarem Ergebnis hält die tägliche Aufgabenverwaltung klar und fokussiert."
+          },
+          {
+            "heading": "Gespeichert über Sitzungen hinweg",
+            "body": "Der Local Storage behält die Aufgaben im Browser, sodass die Liste beim nächsten Besuch wieder verfügbar ist. Die technische Herausforderung besteht darin, die gespeicherten Daten und die aktuelle DOM-Ansicht bei jeder Änderung synchron zu halten, statt die Oberfläche in einem veralteten Zustand zu lassen. Ein responsives Layout hält Eingaben, Filter und Listeneinträge auf allen Bildschirmgrössen gut lesbar, während der Verzicht auf ein Framework den Fokus auf die clientseitige Interaktion legt."
+          }
+        ],
+        "showcaseCaption": "DASHBOARD / DARK UI / FILTER · ILLUSTRATIVE UI-ANSICHTEN"
+      }
+    },
+    "personal-portfolio": {
+      "title": "Persönliches Portfolio — Vom Design zum Code",
+      "category": "FRONTEND / VOM DESIGN ZUM CODE",
+      "summary": "Diese Website: ein professionelles Figma-Design, umgesetzt als schnelle, responsive Website mit React und Tailwind – originalgetreu bis zu Abständen, Typografie und Animationen.",
+      "caseStudy": {
+        "title": "Persönliches Portfolio — Vom Design zum Code",
+        "intro": "Die Website, auf der Sie sich gerade befinden. Ein professionelles Figma-Design, umgesetzt als schnelle, responsive React-Website, die dem Design vom kleinen Smartphone bis zum grossen Monitor treu bleibt.",
+        "role": "Frontend-Entwickler",
+        "overviewTitle": "Projektüberblick & technische Highlights",
+        "overview": [
+          {
+            "heading": "Dem Design treu",
+            "body": "Ich habe direkt mit der Figma-Datei gearbeitet und Layout, Abstände, Farben und Typografie aus den Frames übernommen. Die Farbpalette, die beiden Schriften (Cormorant Garamond und Inter) und die Breakpoints wurden zu Design-Tokens in Tailwind v4, sodass jede Seite aus derselben Quelle schöpft. Wiederkehrende Elemente wie Karten, Tags, Buttons und Links wurden zu kleinen React-Komponenten, und alle Projekte stehen in einer einzigen Datendatei – ein neues Projekt verändert das Layout nie. Wo das Design Spielraum liess, etwa bei Hover-Zuständen, dem mobilen Menü und der Navigation zwischen Fallstudien, habe ich es in derselben Bildsprache erweitert: karminrote Akzente, sanftes Anheben und Linien, die sich aufbauen."
+          },
+          {
+            "heading": "Responsiv, schnell und produktionsreif",
+            "body": "Die feste Seitenleiste wird auf Smartphones zu einer oberen Leiste mit Vollbildmenü, und jede Seite wurde vom kleinen Smartphone bis zum breiten Monitor geprüft. Bilder werden verkleinert und als WebP ausgeliefert, wodurch ihr Gewicht von etwa 1,5 MB auf 130 KB sinkt; lange zwischengespeicherte Build-Dateien machen wiederholte Besuche sofort schnell. Die Website berücksichtigt Tastaturfokus und die Einstellung für reduzierte Bewegung, wird mit einer strikten Content Security Policy und Sicherheits-Headern ausgeliefert und hat für jede Seite eigene Titel sowie Linkvorschauen zum Teilen. Sie ist auf Deutsch, Französisch, Italienisch und Englisch verfügbar und läuft auf Vercel unter meiner eigenen Domain, mit DNS bei Cloudflare."
+          }
+        ],
+        "showcaseCaption": "DESKTOP / MOBIL / DESIGN-TOKENS · ECHTE ANSICHTEN"
+      }
+    }
+  },
+  "previews": {
+    "urconnection": "Startseite von UrConnections",
+    "harmonysmiles": "Startseite der Praxis HarmonySmiles"
+  },
+  "showcase": {
+    "urconnection": {
+      "desktopAlt": "Startseite von UrConnections auf dem Desktop",
+      "mobileAlt": "Anmeldung bei UrConnections auf dem Smartphone",
+      "syncTitle": "Ein einheitliches Profil",
+      "syncText": "Kontodaten und Profiländerungen bleiben in der gesamten Oberfläche synchron."
+    },
+    "harmonysmiles": {
+      "desktopAlt": "Startseite von HarmonySmiles auf dem Desktop",
+      "mobileAlt": "Buchungsformular von HarmonySmiles auf dem Smartphone",
+      "slotsLabel": "LIVE-VERFÜGBARKEIT",
+      "slotsNote": "30-MIN-ZEITFENSTER · ZÜRCHER ZEIT · KEINE DOPPELBUCHUNG",
+      "statusTitle": "Terminstatus",
+      "statusLabel": "ADMIN",
+      "statusNote": "«Erledigt» und «Nicht erschienen» lassen sich erst nach dem Termin setzen."
+    },
+    "practicalTasks": {
+      "filterTitle": "Ein klarerer Überblick",
+      "filterLabel": "FILTER-STUDIE",
+      "filterNote": "Nur erledigte Aufgaben sichtbar.",
+      "storageTitle": "Genau dort weitermachen, wo Sie aufgehört haben.",
+      "storageText": "Aufgaben bleiben zwischen Sitzungen in diesem Browser gespeichert – im Local Storage.",
+      "storageLabel": "CLIENTSEITIG / OHNE FRAMEWORK"
+    },
+    "portfolio": {
+      "desktopAlt": "Startseite des Portfolios auf dem Desktop",
+      "mobileAlt": "Startseite des Portfolios auf dem Smartphone",
+      "tokensTitle": "Design-Tokens",
+      "tokensLabel": "FIGMA → TAILWIND",
+      "screensTitle": "Ein Design, jeder Bildschirm",
+      "screensLabel": "RESPONSIV",
+      "phone": "Smartphone",
+      "phoneText": "obere Leiste + Menü",
+      "tablet": "Tablet",
+      "tabletText": "zweispaltige Raster",
+      "desktop": "Desktop",
+      "desktopText": "feste Seitenleiste",
+      "wide": "Breitbild",
+      "wideText": "zentrierter Inhalt"
+    }
+  }
+}

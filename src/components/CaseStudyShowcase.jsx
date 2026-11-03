@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import urconnectionDesktop from '../assets/images/urconnection-desktop.webp';
 import urconnectionMobile from '../assets/images/urconnection-mobile.webp';
 import harmonySmilesDesktop from '../assets/images/harmonysmiles-desktop.webp';
@@ -18,23 +19,23 @@ const panelHeader = 'flex items-center justify-between gap-2';
 const panelTitle = 'text-[11px] font-medium';
 const panelLabel = 'whitespace-nowrap text-[8px] text-muted';
 const panelText = '-mt-0.5 text-[10px] leading-[15px] text-muted';
+const panelNote = 'text-[8px] leading-[12px] text-muted';
+
+// Mock app screens stay in English (they show English apps); captions around them are translated.
 const status = 'flex items-center gap-2 text-[11px]';
 const zoomImage =
   'size-full object-cover transition-[scale] duration-[600ms] ease-out-soft group-hover/shot:scale-[1.03]';
 
 function UrConnectionShowcase() {
+  const { t } = useTranslation('content', { keyPrefix: 'showcase.urconnection' });
+
   return (
     <div className={`${frame} bg-[#242622]`}>
       <div className="group/shot aspect-[590/272] w-full overflow-hidden rounded-lg sm:aspect-auto sm:h-[272px] sm:w-auto sm:flex-[3_1_400px]">
-        <img
-          className={`${zoomImage} object-top`}
-          src={urconnectionDesktop}
-          alt="UrConnections desktop landing page"
-          loading="lazy"
-        />
+        <img className={`${zoomImage} object-top`} src={urconnectionDesktop} alt={t('desktopAlt')} loading="lazy" />
       </div>
       <div className="group/shot mx-auto h-[272px] flex-[0_0_156px] overflow-hidden rounded-[20px] border-[3px] border-[#b7b6ae] sm:mx-0">
-        <img className={zoomImage} src={urconnectionMobile} alt="UrConnections mobile sign-in screen" loading="lazy" />
+        <img className={zoomImage} src={urconnectionMobile} alt={t('mobileAlt')} loading="lazy" />
       </div>
       <div className={aside}>
         <div className={panel}>
@@ -51,9 +52,9 @@ function UrConnectionShowcase() {
         <div className={panel}>
           <p className={status}>
             <img src={syncDot} alt="" width="5" height="5" />
-            One consistent profile
+            {t('syncTitle')}
           </p>
-          <p className={panelText}>Account details and profile changes stay in sync across the interface.</p>
+          <p className={panelText}>{t('syncText')}</p>
         </div>
       </div>
     </div>
@@ -75,30 +76,21 @@ function HarmonySmilesShowcase() {
     ['Completed', 'border-line text-soft'],
     ['No Show', 'border-line text-muted'],
   ];
+  const { t } = useTranslation('content', { keyPrefix: 'showcase.harmonysmiles' });
 
   return (
     <div className={`${frame} bg-sunken`}>
       <div className="group/shot aspect-[16/10] w-full overflow-hidden rounded-lg sm:aspect-auto sm:h-[272px] sm:w-auto sm:flex-[3_1_400px]">
-        <img
-          className={`${zoomImage} object-top`}
-          src={harmonySmilesDesktop}
-          alt="HarmonySmiles clinic home page on desktop"
-          loading="lazy"
-        />
+        <img className={`${zoomImage} object-top`} src={harmonySmilesDesktop} alt={t('desktopAlt')} loading="lazy" />
       </div>
       <div className="group/shot mx-auto h-[272px] flex-[0_0_156px] overflow-hidden rounded-[20px] border-[3px] border-[#b7b6ae] bg-white sm:mx-0">
-        <img
-          className={`${zoomImage} object-top`}
-          src={harmonySmilesMobile}
-          alt="HarmonySmiles booking form on a phone"
-          loading="lazy"
-        />
+        <img className={`${zoomImage} object-top`} src={harmonySmilesMobile} alt={t('mobileAlt')} loading="lazy" />
       </div>
       <div className={aside}>
         <div className={panel}>
           <div className={panelHeader}>
             <p className={panelTitle}>Tue, 12 Nov</p>
-            <p className={panelLabel}>LIVE AVAILABILITY</p>
+            <p className={panelLabel}>{t('slotsLabel')}</p>
           </div>
           <div className="grid grid-cols-3 gap-1.5">
             {slots.map(([time, booked]) => (
@@ -114,12 +106,12 @@ function HarmonySmilesShowcase() {
               </span>
             ))}
           </div>
-          <p className={panelLabel}>30-MIN SLOTS · ZURICH TIME · NO DOUBLE BOOKING</p>
+          <p className={panelNote}>{t('slotsNote')}</p>
         </div>
         <div className={panel}>
           <div className={panelHeader}>
-            <p className={panelTitle}>Appointment status</p>
-            <p className={panelLabel}>ADMIN</p>
+            <p className={panelTitle}>{t('statusTitle')}</p>
+            <p className={panelLabel}>{t('statusLabel')}</p>
           </div>
           <div className="flex flex-wrap gap-1.5">
             {statuses.map(([label, tone]) => (
@@ -128,7 +120,7 @@ function HarmonySmilesShowcase() {
               </span>
             ))}
           </div>
-          <p className={panelText}>Completed and no-show can only be set once the visit time has passed.</p>
+          <p className={panelText}>{t('statusNote')}</p>
         </div>
       </div>
     </div>
@@ -143,31 +135,22 @@ function PortfolioShowcase() {
     ['muted', 'bg-muted'],
     ['accent', 'bg-accent'],
   ];
-  const breakpoints = [
-    ['Phone', 'top bar + menu'],
-    ['Tablet', '2-column grids'],
-    ['Desktop', 'fixed sidebar'],
-    ['Wide', 'centered content'],
-  ];
+  const breakpoints = ['phone', 'tablet', 'desktop', 'wide'];
+  const { t } = useTranslation('content', { keyPrefix: 'showcase.portfolio' });
 
   return (
     <div className={`${frame} bg-[#242622]`}>
       <div className="group/shot aspect-[16/10] w-full overflow-hidden rounded-lg sm:aspect-auto sm:h-[272px] sm:w-auto sm:flex-[3_1_400px]">
-        <img
-          className={`${zoomImage} object-top`}
-          src={portfolioDesktop}
-          alt="Portfolio home page on desktop"
-          loading="lazy"
-        />
+        <img className={`${zoomImage} object-top`} src={portfolioDesktop} alt={t('desktopAlt')} loading="lazy" />
       </div>
       <div className="group/shot mx-auto h-[272px] flex-[0_0_156px] overflow-hidden rounded-[20px] border-[3px] border-[#b7b6ae] bg-page sm:mx-0">
-        <img className={`${zoomImage} object-top`} src={portfolioMobile} alt="Portfolio home page on a phone" loading="lazy" />
+        <img className={`${zoomImage} object-top`} src={portfolioMobile} alt={t('mobileAlt')} loading="lazy" />
       </div>
       <div className={aside}>
         <div className={panel}>
           <div className={panelHeader}>
-            <p className={panelTitle}>Design tokens</p>
-            <p className={panelLabel}>FIGMA → TAILWIND</p>
+            <p className={panelTitle}>{t('tokensTitle')}</p>
+            <p className={panelLabel}>{t('tokensLabel')}</p>
           </div>
           <div className="flex gap-1.5">
             {tokens.map(([name, swatch]) => (
@@ -184,14 +167,14 @@ function PortfolioShowcase() {
         </div>
         <div className={panel}>
           <div className={panelHeader}>
-            <p className={panelTitle}>One design, every screen</p>
-            <p className={panelLabel}>RESPONSIVE</p>
+            <p className={panelTitle}>{t('screensTitle')}</p>
+            <p className={panelLabel}>{t('screensLabel')}</p>
           </div>
           <ul className="flex flex-col gap-1.5">
-            {breakpoints.map(([size, behaviour]) => (
+            {breakpoints.map((size) => (
               <li key={size} className="flex justify-between gap-2 text-[9px]">
-                <span className="text-soft">{size}</span>
-                <span className="text-muted">{behaviour}</span>
+                <span className="text-soft">{t(size)}</span>
+                <span className="text-right text-muted">{t(`${size}Text`)}</span>
               </li>
             ))}
           </ul>
@@ -235,6 +218,8 @@ function FilterChips({ items, active }) {
 }
 
 function PracticalTasksShowcase() {
+  const { t } = useTranslation('content', { keyPrefix: 'showcase.practicalTasks' });
+
   return (
     <div className={`${frame} bg-sunken`}>
       <div className="flex min-h-[272px] min-w-0 flex-[3_1_460px] overflow-hidden rounded-lg border border-[#333] bg-surface">
@@ -279,20 +264,20 @@ function PracticalTasksShowcase() {
       <div className={aside}>
         <div className={panel}>
           <div className={panelHeader}>
-            <p className={panelTitle}>A clearer view</p>
-            <p className={panelLabel}>FILTER STUDY</p>
+            <p className={panelTitle}>{t('filterTitle')}</p>
+            <p className={panelLabel}>{t('filterLabel')}</p>
           </div>
           <FilterChips items={['All', 'In progress', 'Completed']} active="Completed" />
           <TaskRow label="Review the interface" done />
-          <p className="text-[9px] text-muted">Only completed tasks in view.</p>
+          <p className="text-[9px] text-muted">{t('filterNote')}</p>
         </div>
         <div className={panel}>
           <p className={status}>
             <img src={hardDriveIcon} alt="" width="15" height="15" />
-            Pick up where you left off.
+            {t('storageTitle')}
           </p>
-          <p className={panelText}>Tasks stay in this browser between sessions, using local storage.</p>
-          <p className={panelLabel}>CLIENT-SIDE / FRAMEWORK-FREE</p>
+          <p className={panelText}>{t('storageText')}</p>
+          <p className={panelNote}>{t('storageLabel')}</p>
         </div>
       </div>
     </div>

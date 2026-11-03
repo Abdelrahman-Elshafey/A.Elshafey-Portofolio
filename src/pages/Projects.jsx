@@ -1,22 +1,23 @@
+import { useTranslation } from 'react-i18next';
 import ProjectCard from '../components/ProjectCard.jsx';
 import { PageFooter, PageHeader } from '../components/ui.jsx';
 import { projects } from '../data/projects.js';
+import { useLocale } from '../lib/locale.js';
 import { usePageMeta } from '../lib/usePageMeta.js';
 
-const intro = 'A comprehensive archive of web applications, full-stack builds, and practical side projects.';
-
 export default function Projects() {
-  usePageMeta({ title: 'All Projects', description: intro });
-  const count = String(projects.length).padStart(2, '0');
+  const { t } = useTranslation();
+  const { to } = useLocale();
+  usePageMeta({ title: t('projects.title'), description: t('projects.intro') });
 
   return (
     <div className="flex flex-col gap-8 sm:gap-[37px]">
       <PageHeader
-        backTo="/"
-        backLabel="Back to Home"
-        meta={`PROJECT ARCHIVE / ${count}`}
-        title="All Projects"
-        intro={intro}
+        backTo={to('/')}
+        backLabel={t('projects.backHome')}
+        meta={t('projects.archive', { number: String(projects.length).padStart(2, '0') })}
+        title={t('projects.title')}
+        intro={t('projects.intro')}
       />
 
       {/* Project cards need room for their previews: one per row below 1200px. */}

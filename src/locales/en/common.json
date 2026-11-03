@@ -1,0 +1,59 @@
+{
+  "meta": {
+    "homeDescription": "Abdelrahman Hamed — Full-Stack Developer building secure, scalable web applications with React, TypeScript, Node.js, PostgreSQL and Docker.",
+    "caseStudyTitle": "{{name}} — Case Study"
+  },
+  "nav": {
+    "main": "Main",
+    "home": "Home",
+    "projects": "Projects",
+    "about": "About",
+    "contact": "Contact",
+    "homeLink": "{{name}} — home",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "language": {
+    "label": "Language"
+  },
+  "home": {
+    "pitchTitle": "Building scalable & user-centric web applications.",
+    "resumeLink": "View Resume / GitHub >",
+    "portraitAlt": "Portrait of {{name}}",
+    "featuredTitle": "Featured Projects",
+    "selectedWork": "Selected work",
+    "allProjects": "All projects",
+    "aboutTitle": "About & Skills",
+    "expertiseTitle": "Technical Expertise & Stack",
+    "aboutMe": "About Me",
+    "ctaTitle": "Let's build something exceptional together.",
+    "ctaText": "Available for full-stack roles and exciting web projects.",
+    "ctaButton": "Get in touch / Email Me",
+    "copy": "Copy",
+    "copied": "Copied ✓"
+  },
+  "projects": {
+    "backHome": "Back to Home",
+    "archive": "PROJECT ARCHIVE / {{number}}",
+    "title": "All Projects",
+    "intro": "A comprehensive archive of web applications, full-stack builds, and practical side projects."
+  },
+  "card": {
+    "viewCaseStudy": "View case study",
+    "codeOnGithub": "{{title}}: code on GitHub",
+    "liveApp": "{{title}}: live app"
+  },
+  "caseStudy": {
+    "back": "Back to All Projects",
+    "keyDetails": "Key details",
+    "role": "ROLE",
+    "stack": "TECH STACK",
+    "liveApp": "Live App",
+    "repo": "GitHub Repo",
+    "showcase": "Screenshots / Showcase",
+    "next": "NEXT CASE STUDY"
+  },
+  "footer": {
+    "tagline": "Thoughtfully designed. Precisely built."
+  }
+}

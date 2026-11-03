@@ -1,30 +1,26 @@
+// Texts that change per language (role, pitch, about…) live in src/locales/*/content.json.
 export const profile = {
   name: 'Abdelrahman Hamed',
-  role: 'Full-Stack Developer',
-  tagline: 'SOFTWARE DEVELOPMENT & ENGINEERING',
-  availability: 'Available for select projects',
   email: 'abdelrahmanhamedg@gmail.com',
   links: {
     github: 'https://github.com/Abdelrahman-Elshafey',
     githubLabel: 'GitHub / A.Elshafey',
     linkedin: 'https://www.linkedin.com/in/abdelrahman-hamed-466752176/',
   },
-  pitch:
-    'Skilled in building secure REST APIs with Express and PostgreSQL, managing server state with TanStack Query, and shipping full-stack apps with Docker and automated CI/CD.',
-  about:
-    'Full-Stack Developer passionate about bridging the gap between clean frontend architecture and robust backend logic. I took my app UrConnections from a React + Supabase prototype to a TypeScript monorepo with its own Express API, PostgreSQL database, authentication and Docker setup, and deployed it to my own VPS with CI/CD. Focused on writing maintainable, tested code, designing responsive interfaces, and building user-centric web applications.',
 };
 
+// Captions are translated in src/locales/*/content.json (highlights.<key>).
 export const highlights = [
-  { title: 'React & Node.js', caption: 'Core Stack' },
-  { title: 'Full-Stack', caption: 'REST APIs & PostgreSQL' },
-  { title: 'TypeScript', caption: 'Strict Types, Front to Back' },
-  { title: 'Docker', caption: 'CI/CD & VPS Deployment' },
+  { key: 'core', title: 'React & Node.js' },
+  { key: 'fullstack', title: 'Full-Stack' },
+  { key: 'typescript', title: 'TypeScript' },
+  { key: 'docker', title: 'Docker' },
 ];
 
+// Group names are translated (skillGroups.<key>); technology names stay as they are.
 export const skillGroups = [
   {
-    name: 'Frontend',
+    key: 'frontend',
     skills: [
       'React',
       'TypeScript',
@@ -39,7 +35,7 @@ export const skillGroups = [
     ],
   },
   {
-    name: 'Backend & Databases',
+    key: 'backend',
     skills: [
       'Node.js',
       'Express.js',
@@ -54,11 +50,11 @@ export const skillGroups = [
     ],
   },
   {
-    name: 'DevOps & Deployment',
+    key: 'devops',
     skills: ['Docker', 'Docker Compose', 'GitHub Actions', 'Linux VPS', 'Caddy', 'Nginx', 'Cloudflare'],
   },
   {
-    name: 'Tools & Concepts',
+    key: 'tools',
     skills: ['Git', 'GitHub', 'Postman', 'Vitest', 'ESLint', 'Monorepos', 'Web Security', 'MVC Architecture'],
   },
 ];

@@ -1,0 +1,59 @@
+{
+  "meta": {
+    "homeDescription": "Abdelrahman Hamed — Full-Stack-Entwickler für sichere, skalierbare Webanwendungen mit React, TypeScript, Node.js, PostgreSQL und Docker.",
+    "caseStudyTitle": "{{name}} — Fallstudie"
+  },
+  "nav": {
+    "main": "Hauptnavigation",
+    "home": "Start",
+    "projects": "Projekte",
+    "about": "Über mich",
+    "contact": "Kontakt",
+    "homeLink": "{{name}} — Startseite",
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schliessen"
+  },
+  "language": {
+    "label": "Sprache"
+  },
+  "home": {
+    "pitchTitle": "Ich entwickle skalierbare und nutzerzentrierte Webanwendungen.",
+    "resumeLink": "Lebenslauf / GitHub ansehen >",
+    "portraitAlt": "Porträt von {{name}}",
+    "featuredTitle": "Projekte im Fokus",
+    "selectedWork": "Ausgewählte Arbeiten",
+    "allProjects": "Alle Projekte",
+    "aboutTitle": "Über mich & Skills",
+    "expertiseTitle": "Technische Expertise & Stack",
+    "aboutMe": "Über mich",
+    "ctaTitle": "Lassen Sie uns gemeinsam etwas Aussergewöhnliches bauen.",
+    "ctaText": "Offen für Full-Stack-Stellen und spannende Webprojekte.",
+    "ctaButton": "Kontakt aufnehmen / E-Mail senden",
+    "copy": "Kopieren",
+    "copied": "Kopiert ✓"
+  },
+  "projects": {
+    "backHome": "Zurück zur Startseite",
+    "archive": "PROJEKTARCHIV / {{number}}",
+    "title": "Alle Projekte",
+    "intro": "Ein umfassendes Archiv mit Webanwendungen, Full-Stack-Projekten und praktischen Nebenprojekten."
+  },
+  "card": {
+    "viewCaseStudy": "Fallstudie ansehen",
+    "codeOnGithub": "{{title}}: Code auf GitHub",
+    "liveApp": "{{title}}: Live-App"
+  },
+  "caseStudy": {
+    "back": "Zurück zu allen Projekten",
+    "keyDetails": "Eckdaten",
+    "role": "ROLLE",
+    "stack": "TECH-STACK",
+    "liveApp": "Live-App",
+    "repo": "GitHub-Repo",
+    "showcase": "Screenshots / Showcase",
+    "next": "NÄCHSTE FALLSTUDIE"
+  },
+  "footer": {
+    "tagline": "Durchdacht gestaltet. Präzise umgesetzt."
+  }
+}

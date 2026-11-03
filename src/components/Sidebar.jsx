@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router';
+import { useTranslation } from 'react-i18next';
 import { MutedIcon, Underline } from './ui.jsx';
 import { profile } from '../data/profile.js';
+import { useLocale } from '../lib/locale.js';
 import logo from '../assets/images/logo.webp';
 import houseIcon from '../assets/icons/house.svg';
 import houseActiveIcon from '../assets/icons/house-active.svg';
@@ -15,23 +17,24 @@ import githubIcon from '../assets/icons/github-social.svg';
 
 const MOBILE_QUERY = '(max-width: 960px)';
 
+// isActive receives the path without its language prefix ("/de/projects" → "/projects").
 const navItems = [
   {
-    label: 'Home',
+    key: 'home',
     to: '/',
     icon: houseIcon,
     activeIcon: houseActiveIcon,
-    isActive: ({ pathname, hash }) => pathname === '/' && !hash,
+    isActive: (path, hash) => path === '/' && !hash,
   },
   {
-    label: 'Projects',
+    key: 'projects',
     to: '/projects',
     icon: layersIcon,
     activeIcon: layersActiveIcon,
-    isActive: ({ pathname }) => pathname.startsWith('/projects'),
+    isActive: (path) => path.startsWith('/projects'),
   },
-  { label: 'About', to: '/#about', icon: userIcon },
-  { label: 'Contact', to: '/#contact', icon: mailNavIcon },
+  { key: 'about', to: '/#about', icon: userIcon },
+  { key: 'contact', to: '/#contact', icon: mailNavIcon },
 ];
 
 const socialLinks = [
@@ -45,7 +48,9 @@ const navItemActive = 'bg-accent/10 font-medium text-white';
 const navItemIdle = 'text-muted hover:bg-white/[0.04] hover:pl-5 hover:text-white';
 
 export default function Sidebar() {
+  const { t } = useTranslation();
   const location = useLocation();
+  const { path, to } = useLocale();
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -80,13 +85,13 @@ export default function Sidebar() {
     >
       <div className="flex min-h-12 items-center gap-3 lg:flex-col lg:items-stretch lg:gap-0">
         <Link
-          to="/"
-          aria-label={`${profile.name} — home`}
+          to={to('/')}
+          aria-label={t('nav.homeLink', { name: profile.name })}
           className="block w-12 shrink-0 self-center rounded-lg transition-[scale,filter] duration-300 ease-out-soft hover:scale-[1.03] hover:drop-shadow-[0_8px_24px_rgb(220_38_38/0.35)] lg:w-full short:w-[150px] shorter:w-[110px]"
         >
           <img className="aspect-square h-auto w-full object-cover" src={logo} alt={profile.name} width="216" height="216" />
         </Link>
-        <p className="flex-1 text-[11px] text-muted lg:flex-none lg:text-center">{profile.role}</p>
+        <p className="flex-1 text-[11px] text-muted lg:flex-none lg:text-center">{t('content:profile.role')}</p>
         <button
           type="button"
           aria-expanded={menuOpen}
@@ -94,7 +99,7 @@ export default function Sidebar() {
           onClick={() => setMenuOpen((open) => !open)}
           className="inline-flex size-[42px] cursor-pointer flex-col justify-center gap-1.5 rounded-lg border border-line bg-surface px-[11px] transition-colors hover:border-accent/30 hover:bg-accent/10 group-data-[open=true]/sidebar:border-accent/30 group-data-[open=true]/sidebar:bg-accent/10 lg:hidden"
         >
-          <span className="sr-only">{menuOpen ? 'Close menu' : 'Open menu'}</span>
+          <span className="sr-only">{menuOpen ? t('nav.closeMenu') : t('nav.openMenu')}</span>
           <span className="block h-[1.5px] bg-white transition-transform duration-250 group-data-[open=true]/sidebar:translate-y-[3.75px] group-data-[open=true]/sidebar:rotate-45" />
           <span className="block h-[1.5px] bg-white transition-transform duration-250 group-data-[open=true]/sidebar:-translate-y-[3.75px] group-data-[open=true]/sidebar:-rotate-45" />
         </button>
@@ -104,14 +109,14 @@ export default function Sidebar() {
         id="sidebar-menu"
         className="hidden flex-col justify-between gap-10 pt-8 pb-6 group-data-[open=true]/sidebar:flex group-data-[open=true]/sidebar:animate-menu-in lg:flex lg:flex-1 lg:gap-12 lg:p-0 short:gap-6"
       >
-        <nav aria-label="Main">
+        <nav aria-label={t('nav.main')}>
           <ul className="flex flex-col gap-2 short:gap-1">
             {navItems.map((item) => {
-              const active = item.isActive?.(location) ?? false;
+              const active = item.isActive?.(path, location.hash) ?? false;
               return (
-                <li key={item.label}>
+                <li key={item.key}>
                   <Link
-                    to={item.to}
+                    to={to(item.to)}
                     aria-current={active ? 'page' : undefined}
                     className={`${navItemBase} ${active ? navItemActive : navItemIdle}`}
                   >
@@ -124,7 +129,7 @@ export default function Sidebar() {
                     ) : (
                       <MutedIcon src={item.icon} size="20" />
                     )}
-                    <span>{item.label}</span>
+                    <span>{t(`nav.${item.key}`)}</span>
                     {active && (
                       <img
                         className="absolute top-1/2 right-4 -translate-y-1/2 animate-pulse-soft"
@@ -142,7 +147,6 @@ export default function Sidebar() {
         </nav>
 
         <div className="flex flex-col gap-6 short:gap-4">
-          
           <hr className="h-px w-full border-0 bg-line shorter:hidden" />
           <ul className="flex flex-col gap-3">
             {socialLinks.map((link) => (

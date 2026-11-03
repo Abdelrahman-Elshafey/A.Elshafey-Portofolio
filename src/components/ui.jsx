@@ -1,7 +1,9 @@
 // Small building blocks shared by every page, so the same Tailwind classes
 // aren't repeated in many places.
 import { Link } from 'react-router';
+import { useTranslation } from 'react-i18next';
 import { profile } from '../data/profile.js';
+import LanguageSwitcher from './LanguageSwitcher.jsx';
 
 const cardBase =
   'relative overflow-hidden rounded-2xl border border-line bg-surface transition-[border-color,box-shadow,translate] duration-300 ease-out-soft';
@@ -119,9 +121,12 @@ export function BackLink({ to, children }) {
 export function PageHeader({ backTo, backLabel, meta, title, intro, titleSize = 'text-[clamp(36px,5vw,56px)]' }) {
   return (
     <header className="flex flex-col gap-6">
-      <div className="flex items-center justify-between gap-4 text-muted">
+      <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-3 text-muted">
         <BackLink to={backTo}>{backLabel}</BackLink>
-        <p className="text-right text-[10px]">{meta}</p>
+        <div className="flex flex-wrap items-center justify-end gap-x-4 gap-y-2">
+          <p className="text-right text-[10px]">{meta}</p>
+          <LanguageSwitcher />
+        </div>
       </div>
       <div className="flex flex-col gap-3">
         <h1 className={`font-serif font-medium leading-[1.04] ${titleSize}`}>{title}</h1>
@@ -132,12 +137,13 @@ export function PageHeader({ backTo, backLabel, meta, title, intro, titleSize = 
 }
 
 export function PageFooter() {
+  const { t } = useTranslation();
   return (
     <footer className="flex flex-wrap justify-between gap-x-6 gap-y-2 text-[11px] text-muted">
       <p>
         © {new Date().getFullYear()} {profile.name}
       </p>
-      <p>Thoughtfully designed. Precisely built.</p>
+      <p>{t('footer.tagline')}</p>
     </footer>
   );
 }

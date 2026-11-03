@@ -1,0 +1,160 @@
+{
+  "profile": {
+    "role": "Développeur full-stack",
+    "tagline": "DÉVELOPPEMENT & INGÉNIERIE LOGICIELLE",
+    "pitch": "Expérimenté dans la création d’API REST sécurisées avec Express et PostgreSQL, la gestion de l’état serveur avec TanStack Query et la mise en production d’applications full-stack avec Docker et une CI/CD automatisée.",
+    "about": "Développeur full-stack passionné par le lien entre une architecture front-end propre et une logique back-end robuste. J’ai fait évoluer mon application UrConnections d’un prototype React + Supabase vers un monorepo TypeScript doté de sa propre API Express, d’une base de données PostgreSQL, d’une authentification et d’une configuration Docker, puis je l’ai déployée sur mon propre VPS avec une CI/CD. Je mets l’accent sur un code maintenable et testé, des interfaces responsives et des applications web centrées sur l’utilisateur."
+  },
+  "highlights": {
+    "core": "Stack principale",
+    "fullstack": "API REST & PostgreSQL",
+    "typescript": "Typage strict, du front au back",
+    "docker": "CI/CD & déploiement VPS"
+  },
+  "skillGroups": {
+    "frontend": "Front-end",
+    "backend": "Back-end & bases de données",
+    "devops": "DevOps & déploiement",
+    "tools": "Outils & concepts"
+  },
+  "projects": {
+    "urconnection": {
+      "title": "UrConnections — Application full-stack",
+      "category": "FULL-STACK / APPLICATION SOCIALE",
+      "archiveCategory": "FULL-STACK / APPLICATION WEB",
+      "summary": "Trouver des groupes d’étude et d’intérêt par thème, lieu et plateforme. Un monorepo TypeScript avec sa propre API Express, PostgreSQL, une authentification et Docker, auto-hébergé sur un VPS.",
+      "archiveSummary": "Une application sociale auto-hébergée avec sa propre API, une connexion (e-mail + Google), des photos de profil et un déploiement automatisé.",
+      "caseStudy": {
+        "title": "UrConnections — Application sociale full-stack",
+        "intro": "Trouver des groupes d’étude et d’intérêt par thème, pays, ville et plateforme (WhatsApp, Discord, Telegram…), créer les siens et gérer son profil. Reconstruite à partir d’un prototype Supabase en une stack TypeScript entièrement auto-hébergée.",
+        "role": "Développeur full-stack",
+        "overviewTitle": "Aperçu du projet & défi",
+        "overview": [
+          {
+            "heading": "D’un prototype Supabase à ma propre stack",
+            "body": "La version 1 était une application React sur Supabase et Vercel. Je l’ai reconstruite étape par étape sous forme de monorepo TypeScript : un front-end React 19, une API Express 5 avec PostgreSQL (Kysely et migrations SQL) et des schémas Zod partagés par les deux, afin que le navigateur et le serveur valident les données de la même façon. Les comptes prennent en charge l’inscription par e-mail avec vérification, la réinitialisation du mot de passe et la connexion avec Google. Seule la personne qui a créé un groupe peut le modifier ou le supprimer, et les photos de profil sont vérifiées, redimensionnées en WebP et stockées dans un stockage compatible S3. Le chargement différé des pages et des données a fait passer le score Lighthouse mobile d’environ 80 à 96."
+          },
+          {
+            "heading": "La sécurité, et une mise en production assurée moi-même",
+            "body": "La sécurité réside dans l’API : hachage des mots de passe avec argon2id, jetons de session hachés dans des cookies httpOnly, contrôles CSRF, limitation du débit, OAuth Google avec PKCE et vérification de la propriété dans chaque requête SQL, le tout couvert par des tests Vitest et Supertest. L’application tourne dans Docker sur un VPS Linux renforcé, derrière Caddy, avec HTTPS automatique et une Content Security Policy stricte. GitHub Actions exécute le linting, la vérification des types, les tests et le build à chaque push, puis déploie chaque version sur le serveur. Les sauvegardes nocturnes de la base de données et les photos de profil sont copiées hors site sur Cloudflare R2, et leur restauration a été testée."
+          }
+        ],
+        "showcaseCaption": "ORDINATEUR / MOBILE / COMPOSANTS · VUES D’INTERFACE ILLUSTRATIVES"
+      }
+    },
+    "harmonysmiles": {
+      "title": "HarmonySmiles — Système de réservation pour cabinet",
+      "category": "FULL-STACK / RÉSERVATION MÉDICALE",
+      "archiveCategory": "BACK-END / RÉSERVATIONS DE CABINET",
+      "summary": "Réservation en ligne et tableau de bord d’administration pour un cabinet dentaire en Suisse. J’ai développé l’API REST en TypeScript avec Express et PostgreSQL, le parcours de réservation en direct et les pages d’administration, puis j’ai tout déployé sur Render.",
+      "archiveSummary": "Un système de réservation pour cabinet dentaire avec créneaux en temps réel, protection contre les doubles réservations et un tableau de bord sécurisé pour les rendez-vous et les patients.",
+      "caseStudy": {
+        "title": "HarmonySmiles — Système de réservation pour cabinet dentaire",
+        "intro": "Réservation de rendez-vous en ligne pour un cabinet dentaire en Suisse, avec disponibilités en temps réel pour les patients et un tableau de bord sécurisé où l’équipe gère les rendez-vous et les dossiers patients. Un projet d’équipe : j’ai développé le back-end, le parcours de réservation et le tableau de bord d’administration.",
+        "role": "Développeur back-end & full-stack",
+        "overviewTitle": "Aperçu du projet & points techniques",
+        "overview": [
+          {
+            "heading": "Aucune double réservation possible",
+            "body": "Les patients choisissent une date et voient en temps réel les créneaux libres de 30 minutes, calculés dans le fuseau horaire du cabinet (Europe/Zurich), avec les week-ends fermés et des réservations limitées à un mois à l’avance. L’API REST est écrite en TypeScript sur Express 5, avec du SQL paramétré écrit à la main sur PostgreSQL. Un index unique partiel rend les doubles réservations impossibles au niveau de la base de données, tout en permettant de réserver à nouveau un créneau annulé ; chaque réservation crée ou réutilise la fiche patient au sein d’une seule transaction. Chaque requête est validée avec Zod, et un gestionnaire d’erreurs central transforme les échecs en réponses claires."
+          },
+          {
+            "heading": "Un tableau de bord sécurisé pour l’équipe du cabinet",
+            "body": "L’équipe se connecte avec des mots de passe hachés par bcrypt et des jetons JWT. Chaque route d’administration est protégée par défaut, et un nom d’utilisateur erroné est rejeté aussi vite qu’un mot de passe erroné, de sorte que les comptes ne peuvent pas être découverts par le temps de réponse. Depuis le tableau de bord, l’équipe confirme ou annule les rendez-vous, les marque comme effectués ou non honorés une fois l’heure passée, filtre par statut ou par période et ouvre le profil de chaque patient avec ses visites à venir et passées. Les numéros de dossier et l’âge sont calculés automatiquement. J’ai également déployé l’API, la base de données PostgreSQL et le site sur Render."
+          }
+        ],
+        "showcaseCaption": "ORDINATEUR / RÉSERVATION MOBILE / ADMIN · ÉCRANS RÉELS & INTERFACE ILLUSTRATIVE"
+      }
+    },
+    "practical-tasks": {
+      "title": "Practical Tasks — Gestionnaire de tâches",
+      "category": "FRONT-END / GESTION DE TÂCHES",
+      "summary": "Application dynamique de gestion de tâches développée en JavaScript et Tailwind CSS, avec persistance dans le local storage.",
+      "archiveSummary": "Un gestionnaire de tâches en JavaScript et Tailwind, avec persistance dans le local storage.",
+      "caseStudy": {
+        "title": "Practical Tasks — Gestionnaire de tâches",
+        "intro": "Une solution de gestion de tâches dynamique et sans framework, axée sur la performance et la persistance dans le local storage.",
+        "role": "Développeur front-end",
+        "overviewTitle": "Aperçu du projet & points techniques",
+        "overview": [
+          {
+            "heading": "Un retour immédiat, sans framework",
+            "body": "Practical Tasks est un gestionnaire de tâches côté client, développé en JavaScript natif, Tailwind CSS et HTML5/CSS3. La manipulation du DOM garde la liste réactive : ajouter une tâche ou changer son état met immédiatement l’interface à jour. Des filtres séparent les tâches en cours des tâches terminées. Ce lien direct entre une action et son résultat à l’écran rend la gestion quotidienne des tâches claire et ciblée."
+          },
+          {
+            "heading": "Une persistance d’une session à l’autre",
+            "body": "Le local storage conserve les tâches dans le navigateur, si bien que la liste reste disponible lors d’une visite ultérieure. Le défi technique consiste à garder les données enregistrées et la vue du DOM synchronisées à chaque modification, plutôt que de laisser l’interface dans un état obsolète. Une mise en page responsive garde les champs, les filtres et les éléments de la liste lisibles sur toutes les tailles d’écran, tandis que l’approche sans framework reste centrée sur l’interaction côté client."
+          }
+        ],
+        "showcaseCaption": "TABLEAU DE BORD / INTERFACE SOMBRE / FILTRES · VUES D’INTERFACE ILLUSTRATIVES"
+      }
+    },
+    "personal-portfolio": {
+      "title": "Portfolio personnel — Du design au code",
+      "category": "FRONT-END / DU DESIGN AU CODE",
+      "summary": "Ce site : un design Figma professionnel transformé en un site React et Tailwind rapide et responsive, fidèle au design jusque dans les espacements, la typographie et les animations.",
+      "caseStudy": {
+        "title": "Portfolio personnel — Du design au code",
+        "intro": "Le site sur lequel vous vous trouvez. Un design Figma professionnel, réalisé sous forme d’un site React rapide et responsive qui reste fidèle au design, des petits smartphones aux grands écrans.",
+        "role": "Développeur front-end",
+        "overviewTitle": "Aperçu du projet & points techniques",
+        "overview": [
+          {
+            "heading": "Fidèle au design",
+            "body": "J’ai travaillé directement à partir du fichier Figma, en reprenant des maquettes la mise en page, les espacements, les couleurs et la typographie. La palette, les deux polices (Cormorant Garamond et Inter) et les points de rupture sont devenus des design tokens Tailwind v4, afin que chaque page s’appuie sur une source unique. Les éléments récurrents comme les cartes, les étiquettes, les boutons et les liens sont devenus de petits composants React, et tous les projets se trouvent dans un seul fichier de données : en ajouter un ne touche jamais à la mise en page. Là où le design laissait de la marge, comme les états au survol, le menu mobile et la navigation entre études de cas, je l’ai prolongé dans le même langage visuel : accents carmin, légers soulèvements et lignes qui se dessinent."
+          },
+          {
+            "heading": "Responsive, rapide et prêt pour la production",
+            "body": "La barre latérale fixe devient une barre supérieure avec un menu plein écran sur mobile, et chaque page a été vérifiée des petits smartphones aux grands écrans. Les images sont redimensionnées et servies en WebP, ce qui réduit leur poids d’environ 1,5 Mo à 130 Ko, et les fichiers de build mis en cache longtemps rendent les visites suivantes instantanées. Le site respecte le focus clavier et le réglage de réduction des animations, est servi avec une Content Security Policy stricte et des en-têtes de sécurité, et dispose de titres par page et d’aperçus de liens pour le partage. Disponible en français, allemand, italien et anglais, il est déployé sur Vercel sous mon propre domaine, avec un DNS chez Cloudflare."
+          }
+        ],
+        "showcaseCaption": "ORDINATEUR / MOBILE / DESIGN TOKENS · ÉCRANS RÉELS"
+      }
+    }
+  },
+  "previews": {
+    "urconnection": "Page d’accueil d’UrConnections",
+    "harmonysmiles": "Page d’accueil du cabinet HarmonySmiles"
+  },
+  "showcase": {
+    "urconnection": {
+      "desktopAlt": "Page d’accueil d’UrConnections sur ordinateur",
+      "mobileAlt": "Écran de connexion d’UrConnections sur mobile",
+      "syncTitle": "Un profil cohérent",
+      "syncText": "Les données du compte et les modifications du profil restent synchronisées dans toute l’interface."
+    },
+    "harmonysmiles": {
+      "desktopAlt": "Page d’accueil de HarmonySmiles sur ordinateur",
+      "mobileAlt": "Formulaire de réservation de HarmonySmiles sur mobile",
+      "slotsLabel": "DISPONIBILITÉS EN DIRECT",
+      "slotsNote": "CRÉNEAUX DE 30 MIN · HEURE DE ZURICH · AUCUNE DOUBLE RÉSERVATION",
+      "statusTitle": "Statut du rendez-vous",
+      "statusLabel": "ADMIN",
+      "statusNote": "« Effectué » et « non honoré » ne peuvent être définis qu’après l’heure du rendez-vous."
+    },
+    "practicalTasks": {
+      "filterTitle": "Une vue plus claire",
+      "filterLabel": "ÉTUDE DE FILTRE",
+      "filterNote": "Seules les tâches terminées sont affichées.",
+      "storageTitle": "Reprenez là où vous vous étiez arrêté.",
+      "storageText": "Les tâches restent dans ce navigateur d’une session à l’autre, grâce au local storage.",
+      "storageLabel": "CÔTÉ CLIENT / SANS FRAMEWORK"
+    },
+    "portfolio": {
+      "desktopAlt": "Page d’accueil du portfolio sur ordinateur",
+      "mobileAlt": "Page d’accueil du portfolio sur mobile",
+      "tokensTitle": "Design tokens",
+      "tokensLabel": "FIGMA → TAILWIND",
+      "screensTitle": "Un design, tous les écrans",
+      "screensLabel": "RESPONSIVE",
+      "phone": "Mobile",
+      "phoneText": "barre supérieure + menu",
+      "tablet": "Tablette",
+      "tabletText": "grilles à 2 colonnes",
+      "desktop": "Ordinateur",
+      "desktopText": "barre latérale fixe",
+      "wide": "Grand écran",
+      "wideText": "contenu centré"
+    }
+  }
+}
