@@ -143,7 +143,6 @@ export function PageFooter() {
       <p>
         © {new Date().getFullYear()} {profile.name}
       </p>
-      <p>{t('footer.tagline')}</p>
     </footer>
   );
 }

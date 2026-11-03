@@ -1,6 +1,6 @@
 // Texts that change per language (role, pitch, about…) live in src/locales/*/content.json.
 export const profile = {
-  name: 'Abdelrahman Hamed',
+  name: 'Abdelrahman Elshafey',
   email: 'abdelrahmanhamedg@gmail.com',
   links: {
     github: 'https://github.com/Abdelrahman-Elshafey',
