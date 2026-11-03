@@ -20,9 +20,6 @@
     "pitchTitle": "Je crée des applications web évolutives et centrées sur l’utilisateur.",
     "resumeLink": "Voir le CV / GitHub >",
     "portraitAlt": "Portrait de {{name}}",
-    "featuredTitle": "Projets à la une",
-    "selectedWork": "Travaux choisis",
-    "allProjects": "Tous les projets",
     "aboutTitle": "À propos & compétences",
     "expertiseTitle": "Expertise technique & stack",
     "aboutMe": "À propos de moi",
@@ -33,9 +30,7 @@
     "copied": "Copié ✓"
   },
   "projects": {
-    "backHome": "Retour à l’accueil",
-    "archive": "ARCHIVE DES PROJETS / {{number}}",
-    "title": "Tous les projets",
+    "title": "Projets",
     "intro": "Une archive complète d’applications web, de projets full-stack et de projets personnels concrets."
   },
   "card": {
@@ -44,7 +39,7 @@
     "liveApp": "{{title}} : application en ligne"
   },
   "caseStudy": {
-    "back": "Retour à tous les projets",
+    "back": "Retour aux projets",
     "keyDetails": "Informations clés",
     "role": "RÔLE",
     "stack": "STACK TECHNIQUE",

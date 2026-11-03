@@ -33,38 +33,6 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.aelshafey.com/"/>
   </url>
   <url>
-    <loc>https://www.aelshafey.com/projects</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.aelshafey.com/projects"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.aelshafey.com/de/projects"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.aelshafey.com/fr/projects"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.aelshafey.com/it/projects"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.aelshafey.com/projects"/>
-  </url>
-  <url>
-    <loc>https://www.aelshafey.com/de/projects</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.aelshafey.com/projects"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.aelshafey.com/de/projects"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.aelshafey.com/fr/projects"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.aelshafey.com/it/projects"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.aelshafey.com/projects"/>
-  </url>
-  <url>
-    <loc>https://www.aelshafey.com/fr/projects</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.aelshafey.com/projects"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.aelshafey.com/de/projects"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.aelshafey.com/fr/projects"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.aelshafey.com/it/projects"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.aelshafey.com/projects"/>
-  </url>
-  <url>
-    <loc>https://www.aelshafey.com/it/projects</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.aelshafey.com/projects"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.aelshafey.com/de/projects"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.aelshafey.com/fr/projects"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.aelshafey.com/it/projects"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.aelshafey.com/projects"/>
-  </url>
-  <url>
     <loc>https://www.aelshafey.com/projects/urconnection</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.aelshafey.com/projects/urconnection"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.aelshafey.com/de/projects/urconnection"/>

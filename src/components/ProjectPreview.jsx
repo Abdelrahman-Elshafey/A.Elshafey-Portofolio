@@ -76,51 +76,6 @@ function TasksDashboardPreview() {
   );
 }
 
-function TasksListPreview() {
-  const tasks = [
-    ['Review interface', true],
-    ['Build task manager', false],
-    ['Save tasks locally', false],
-  ];
-
-  return (
-    <div className={mockFrame} aria-hidden="true">
-      <div className={appWindow}>
-        <div className={appSidebar}>
-          <p className="text-[10px] font-semibold text-white">tasks</p>
-          <p className="text-white">All tasks</p>
-          <p>In progress</p>
-          <p>Completed</p>
-        </div>
-        <div className="flex min-w-0 flex-1 flex-col gap-3 p-3.5">
-          <div className="flex items-start justify-between">
-            <p className="text-[10px] font-medium text-white">Task list</p>
-            <p>ILLUSTRATIVE UI</p>
-          </div>
-          <div className="flex h-6 items-center justify-between rounded-[3px] border border-line px-2 text-[7px]">
-            <p>Add a task…</p>
-            <p className="text-[11px] text-accent">+</p>
-          </div>
-          <div className="flex flex-col gap-[9px]">
-            {tasks.map(([task, done]) => (
-              <div
-                key={task}
-                className={`flex items-center gap-[7px] text-[7px] ${done ? 'text-muted line-through' : 'text-soft'}`}
-              >
-                <span
-                  className={`size-2 rounded-[2px] border ${done ? 'border-accent bg-accent' : 'border-muted'}`}
-                />
-                <p>{task}</p>
-              </div>
-            ))}
-          </div>
-          <p>Saved in local storage</p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 function PortfolioPreview() {
   return (
     <div className="flex min-h-[190px] flex-1 bg-sunken p-3 sm:min-h-[225px] sm:p-5" aria-hidden="true">
@@ -162,7 +117,6 @@ const previews = {
   urconnection: UrConnectionPreview,
   harmonysmiles: HarmonySmilesPreview,
   'tasks-dashboard': TasksDashboardPreview,
-  'tasks-list': TasksListPreview,
   portfolio: PortfolioPreview,
 };
 

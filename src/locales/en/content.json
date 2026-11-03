@@ -21,9 +21,7 @@
     "urconnection": {
       "title": "UrConnections — Full-Stack App",
       "category": "FULL-STACK / SOCIAL APP",
-      "archiveCategory": "FULL-STACK / WEB APPLICATION",
       "summary": "Find study and interest groups by topic, place and platform. A TypeScript monorepo with its own Express API, PostgreSQL, authentication and Docker, self-hosted on a VPS.",
-      "archiveSummary": "A self-hosted social app with its own API, sign-in (email + Google), profile photos and automated deployment.",
       "caseStudy": {
         "title": "UrConnections — Full-Stack Social App",
         "intro": "Find study and interest groups by topic, country, city and platform (WhatsApp, Discord, Telegram…), create your own, and manage your profile. Rebuilt from a Supabase prototype into a fully self-hosted TypeScript stack.",
@@ -45,9 +43,7 @@
     "harmonysmiles": {
       "title": "HarmonySmiles — Clinic Booking System",
       "category": "FULL-STACK / HEALTHCARE BOOKING",
-      "archiveCategory": "BACKEND / CLINIC RESERVATIONS",
       "summary": "Online booking and an admin dashboard for a dental clinic in Switzerland. I built the TypeScript REST API on Express and PostgreSQL, the live booking flow and the admin pages, and deployed it on Render.",
-      "archiveSummary": "A dental clinic reservation system with live time slots, double-booking protection and a secure dashboard for appointments and patients.",
       "caseStudy": {
         "title": "HarmonySmiles — Dental Clinic Booking System",
         "intro": "Online appointment booking for a dental clinic in Switzerland, with live availability for patients and a secure dashboard where staff manage appointments and patient records. A team project: I built the backend, the booking flow and the admin dashboard.",
@@ -70,7 +66,6 @@
       "title": "Practical Tasks — Task Manager",
       "category": "FRONTEND / TASK MANAGEMENT",
       "summary": "Dynamic task management app built using JavaScript and Tailwind CSS with local storage persistence.",
-      "archiveSummary": "A task manager built with JavaScript and Tailwind, with local storage persistence.",
       "caseStudy": {
         "title": "Practical Tasks — Task Manager",
         "intro": "A dynamic, framework-free task management solution focused on performance and local storage persistence.",

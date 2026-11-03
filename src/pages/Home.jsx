@@ -1,17 +1,14 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from '../components/LanguageSwitcher.jsx';
 import ProjectCard from '../components/ProjectCard.jsx';
-import { ArrowIcon, Card, PageFooter, PillLink, TagList, Underline } from '../components/ui.jsx';
+import { ArrowIcon, Card, PageFooter, PillLink, TagList } from '../components/ui.jsx';
 import { highlights, profile, skillGroups } from '../data/profile.js';
-import { featuredProjects } from '../data/projects.js';
-import { useLocale } from '../lib/locale.js';
+import { projects } from '../data/projects.js';
 import { usePageMeta } from '../lib/usePageMeta.js';
 import portrait from '../assets/images/portrait.webp';
 import arrowRed from '../assets/icons/arrow-red.svg';
 import arrowWhite from '../assets/icons/arrow-white.svg';
-import arrowUpRight from '../assets/icons/arrow-up-right.svg';
 
 const sectionTitle = 'font-serif text-[32px] leading-[1.2] sm:text-[40px]';
 const cardHeading = 'font-serif text-[clamp(30px,3.2vw,40px)] font-medium leading-[1.1]';
@@ -59,7 +56,6 @@ function CopyEmailButton({ email }) {
 
 export default function Home() {
   const { t } = useTranslation();
-  const { to } = useLocale();
   usePageMeta();
 
   return (
@@ -126,24 +122,21 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="flex flex-col gap-4" aria-labelledby="featured-title">
-        <h2 id="featured-title" className={sectionTitle}>
-          {t('home.featuredTitle')}
-        </h2>
-        <div className="flex min-h-8 items-center justify-between gap-4">
-          <h3 className="font-serif text-[24px] sm:text-[28px]">{t('home.selectedWork')}</h3>
-          <Link
-            to={to('/projects')}
-            className="group inline-flex shrink-0 items-center gap-2 text-[12px] text-muted transition-colors hover:text-white"
-          >
-            <Underline>{t('home.allProjects')}</Underline>
-            <ArrowIcon src={arrowUpRight} />
-          </Link>
+      <section
+        id="projects"
+        className="flex scroll-mt-[89px] flex-col gap-4 sm:gap-6 lg:scroll-mt-6"
+        aria-labelledby="projects-title"
+      >
+        <div className="flex flex-col gap-2">
+          <h2 id="projects-title" className={sectionTitle}>
+            {t('projects.title')}
+          </h2>
+          <p className="text-[15px] leading-[22px] text-muted">{t('projects.intro')}</p>
         </div>
         {/* Project cards need room for their previews: one per row below 1200px. */}
         <div className="grid grid-cols-1 gap-4 sm:gap-6 2xl:grid-cols-2">
-          {featuredProjects.map((project) => (
-            <ProjectCard key={project.slug} project={project} variant="featured" />
+          {projects.map((project) => (
+            <ProjectCard key={project.slug} project={project} />
           ))}
         </div>
       </section>

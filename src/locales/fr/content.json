@@ -21,9 +21,7 @@
     "urconnection": {
       "title": "UrConnections — Application full-stack",
       "category": "FULL-STACK / APPLICATION SOCIALE",
-      "archiveCategory": "FULL-STACK / APPLICATION WEB",
       "summary": "Trouver des groupes d’étude et d’intérêt par thème, lieu et plateforme. Un monorepo TypeScript avec sa propre API Express, PostgreSQL, une authentification et Docker, auto-hébergé sur un VPS.",
-      "archiveSummary": "Une application sociale auto-hébergée avec sa propre API, une connexion (e-mail + Google), des photos de profil et un déploiement automatisé.",
       "caseStudy": {
         "title": "UrConnections — Application sociale full-stack",
         "intro": "Trouver des groupes d’étude et d’intérêt par thème, pays, ville et plateforme (WhatsApp, Discord, Telegram…), créer les siens et gérer son profil. Reconstruite à partir d’un prototype Supabase en une stack TypeScript entièrement auto-hébergée.",
@@ -45,9 +43,7 @@
     "harmonysmiles": {
       "title": "HarmonySmiles — Système de réservation pour cabinet",
       "category": "FULL-STACK / RÉSERVATION MÉDICALE",
-      "archiveCategory": "BACK-END / RÉSERVATIONS DE CABINET",
       "summary": "Réservation en ligne et tableau de bord d’administration pour un cabinet dentaire en Suisse. J’ai développé l’API REST en TypeScript avec Express et PostgreSQL, le parcours de réservation en direct et les pages d’administration, puis j’ai tout déployé sur Render.",
-      "archiveSummary": "Un système de réservation pour cabinet dentaire avec créneaux en temps réel, protection contre les doubles réservations et un tableau de bord sécurisé pour les rendez-vous et les patients.",
       "caseStudy": {
         "title": "HarmonySmiles — Système de réservation pour cabinet dentaire",
         "intro": "Réservation de rendez-vous en ligne pour un cabinet dentaire en Suisse, avec disponibilités en temps réel pour les patients et un tableau de bord sécurisé où l’équipe gère les rendez-vous et les dossiers patients. Un projet d’équipe : j’ai développé le back-end, le parcours de réservation et le tableau de bord d’administration.",
@@ -70,7 +66,6 @@
       "title": "Practical Tasks — Gestionnaire de tâches",
       "category": "FRONT-END / GESTION DE TÂCHES",
       "summary": "Application dynamique de gestion de tâches développée en JavaScript et Tailwind CSS, avec persistance dans le local storage.",
-      "archiveSummary": "Un gestionnaire de tâches en JavaScript et Tailwind, avec persistance dans le local storage.",
       "caseStudy": {
         "title": "Practical Tasks — Gestionnaire de tâches",
         "intro": "Une solution de gestion de tâches dynamique et sans framework, axée sur la performance et la persistance dans le local storage.",

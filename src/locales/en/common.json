@@ -20,9 +20,6 @@
     "pitchTitle": "Building scalable & user-centric web applications.",
     "resumeLink": "View Resume / GitHub >",
     "portraitAlt": "Portrait of {{name}}",
-    "featuredTitle": "Featured Projects",
-    "selectedWork": "Selected work",
-    "allProjects": "All projects",
     "aboutTitle": "About & Skills",
     "expertiseTitle": "Technical Expertise & Stack",
     "aboutMe": "About Me",
@@ -33,9 +30,7 @@
     "copied": "Copied ✓"
   },
   "projects": {
-    "backHome": "Back to Home",
-    "archive": "PROJECT ARCHIVE / {{number}}",
-    "title": "All Projects",
+    "title": "Projects",
     "intro": "A comprehensive archive of web applications, full-stack builds, and practical side projects."
   },
   "card": {
@@ -44,7 +39,7 @@
     "liveApp": "{{title}}: live app"
   },
   "caseStudy": {
-    "back": "Back to All Projects",
+    "back": "Back to Projects",
     "keyDetails": "Key details",
     "role": "ROLE",
     "stack": "TECH STACK",

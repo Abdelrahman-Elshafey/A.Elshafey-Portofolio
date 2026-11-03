@@ -20,9 +20,6 @@
     "pitchTitle": "Ich entwickle skalierbare und nutzerzentrierte Webanwendungen.",
     "resumeLink": "Lebenslauf / GitHub ansehen >",
     "portraitAlt": "Porträt von {{name}}",
-    "featuredTitle": "Projekte im Fokus",
-    "selectedWork": "Ausgewählte Arbeiten",
-    "allProjects": "Alle Projekte",
     "aboutTitle": "Über mich & Skills",
     "expertiseTitle": "Technische Expertise & Stack",
     "aboutMe": "Über mich",
@@ -33,9 +30,7 @@
     "copied": "Kopiert ✓"
   },
   "projects": {
-    "backHome": "Zurück zur Startseite",
-    "archive": "PROJEKTARCHIV / {{number}}",
-    "title": "Alle Projekte",
+    "title": "Projekte",
     "intro": "Ein umfassendes Archiv mit Webanwendungen, Full-Stack-Projekten und praktischen Nebenprojekten."
   },
   "card": {
@@ -44,7 +39,7 @@
     "liveApp": "{{title}}: Live-App"
   },
   "caseStudy": {
-    "back": "Zurück zu allen Projekten",
+    "back": "Zurück zu den Projekten",
     "keyDetails": "Eckdaten",
     "role": "ROLLE",
     "stack": "TECH-STACK",

@@ -21,9 +21,7 @@
     "urconnection": {
       "title": "UrConnections — Full-Stack-App",
       "category": "FULL-STACK / SOCIAL APP",
-      "archiveCategory": "FULL-STACK / WEBANWENDUNG",
       "summary": "Lern- und Interessengruppen nach Thema, Ort und Plattform finden. Ein TypeScript-Monorepo mit eigener Express-API, PostgreSQL, Authentifizierung und Docker, selbst gehostet auf einem VPS.",
-      "archiveSummary": "Eine selbst gehostete Social App mit eigener API, Anmeldung (E-Mail + Google), Profilfotos und automatisiertem Deployment.",
       "caseStudy": {
         "title": "UrConnections — Full-Stack Social App",
         "intro": "Lern- und Interessengruppen nach Thema, Land, Stadt und Plattform (WhatsApp, Discord, Telegram …) finden, eigene Gruppen erstellen und das eigene Profil verwalten. Von einem Supabase-Prototyp zu einem vollständig selbst gehosteten TypeScript-Stack neu aufgebaut.",
@@ -45,9 +43,7 @@
     "harmonysmiles": {
       "title": "HarmonySmiles — Buchungssystem für eine Praxis",
       "category": "FULL-STACK / BUCHUNGEN IM GESUNDHEITSWESEN",
-      "archiveCategory": "BACKEND / PRAXIS-RESERVIERUNGEN",
       "summary": "Online-Terminbuchung und ein Admin-Dashboard für eine Zahnarztpraxis in der Schweiz. Ich habe die TypeScript-REST-API mit Express und PostgreSQL, den Live-Buchungsablauf und die Admin-Seiten entwickelt und alles auf Render bereitgestellt.",
-      "archiveSummary": "Ein Reservierungssystem für eine Zahnarztpraxis mit Live-Zeitfenstern, Schutz vor Doppelbuchungen und einem sicheren Dashboard für Termine und Patienten.",
       "caseStudy": {
         "title": "HarmonySmiles — Buchungssystem für eine Zahnarztpraxis",
         "intro": "Online-Terminbuchung für eine Zahnarztpraxis in der Schweiz – mit Live-Verfügbarkeit für Patientinnen und Patienten und einem sicheren Dashboard, in dem das Praxisteam Termine und Patientendaten verwaltet. Ein Teamprojekt: Ich habe das Backend, den Buchungsablauf und das Admin-Dashboard entwickelt.",
@@ -70,7 +66,6 @@
       "title": "Practical Tasks — Aufgabenverwaltung",
       "category": "FRONTEND / AUFGABENVERWALTUNG",
       "summary": "Dynamische Aufgabenverwaltung mit JavaScript und Tailwind CSS, die Aufgaben im Local Storage speichert.",
-      "archiveSummary": "Eine Aufgabenverwaltung mit JavaScript und Tailwind, die Aufgaben im Local Storage sichert.",
       "caseStudy": {
         "title": "Practical Tasks — Aufgabenverwaltung",
         "intro": "Eine dynamische Aufgabenverwaltung ohne Framework, mit Fokus auf Performance und dauerhafter Speicherung im Local Storage.",

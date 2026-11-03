@@ -6,15 +6,17 @@ import { LANGUAGES, localizePath, stripLanguage, useLocale } from '../lib/locale
 
 const SITE_URL = import.meta.env.VITE_SITE_URL ?? '';
 
+// Scrolls to the section in the address (#projects, #about…) or to the top.
+// Runs on every link click (`key`), so clicking "Projects" again scrolls there again —
+// except when only the language changed: then the visitor stays where they are.
 function useScrollOnNavigate() {
-  const { pathname, hash } = useLocation();
-  const previousPage = useRef(null);
+  const { pathname, hash, key } = useLocation();
+  const previous = useRef(null);
 
   useEffect(() => {
-    // Switching language keeps the same page, so keep the scroll position too.
     const page = stripLanguage(pathname) + hash;
-    const languageOnly = previousPage.current === page;
-    previousPage.current = page;
+    const languageOnly = previous.current?.page === page && previous.current.pathname !== pathname;
+    previous.current = { page, pathname };
     if (languageOnly) return;
 
     if (hash) {
@@ -22,7 +24,7 @@ function useScrollOnNavigate() {
     } else {
       window.scrollTo(0, 0);
     }
-  }, [pathname, hash]);
+  }, [pathname, hash, key]);
 }
 
 // The URL decides the language (e.g. /de/projects → German).

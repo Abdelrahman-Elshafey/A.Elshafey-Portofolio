@@ -31,7 +31,7 @@ export default function CaseStudy() {
   });
 
   if (!project?.caseStudy) {
-    return <Navigate to={to('/projects')} replace />;
+    return <Navigate to={to('/#projects')} replace />;
   }
 
   const overview = text('caseStudy.overview', { returnObjects: true });
@@ -40,7 +40,7 @@ export default function CaseStudy() {
   return (
     <div className="flex flex-col gap-4 sm:gap-6">
       <PageHeader
-        backTo={to('/projects')}
+        backTo={to('/#projects')}
         backLabel={t('caseStudy.back')}
         meta={text('category')}
         title={text('caseStudy.title')}

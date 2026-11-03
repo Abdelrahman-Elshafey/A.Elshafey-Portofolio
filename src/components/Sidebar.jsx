@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { MutedIcon, Underline } from './ui.jsx';
 import { profile } from '../data/profile.js';
 import { useLocale } from '../lib/locale.js';
+import { useActiveSection } from '../lib/useActiveSection.js';
 import logo from '../assets/images/logo.webp';
 import houseIcon from '../assets/icons/house.svg';
 import houseActiveIcon from '../assets/icons/house-active.svg';
@@ -17,24 +18,27 @@ import githubIcon from '../assets/icons/github-social.svg';
 
 const MOBILE_QUERY = '(max-width: 960px)';
 
-// isActive receives the path without its language prefix ("/de/projects" → "/projects").
+// Everything is one page: the links scroll to its sections. The highlighted item follows
+// the section in view; on a case-study page ("/projects/<slug>") it's Projects.
+// isActive receives the path without its language prefix and the section in view.
+const SECTION_IDS = ['projects', 'about', 'contact'];
 const navItems = [
   {
     key: 'home',
     to: '/',
     icon: houseIcon,
     activeIcon: houseActiveIcon,
-    isActive: (path, hash) => path === '/' && !hash,
+    isActive: (path, section) => path === '/' && !section,
   },
   {
     key: 'projects',
-    to: '/projects',
+    to: '/#projects',
     icon: layersIcon,
     activeIcon: layersActiveIcon,
-    isActive: (path) => path.startsWith('/projects'),
+    isActive: (path, section) => section === 'projects' || path.startsWith('/projects/'),
   },
-  { key: 'about', to: '/#about', icon: userIcon },
-  { key: 'contact', to: '/#contact', icon: mailNavIcon },
+  { key: 'about', to: '/#about', icon: userIcon, isActive: (_, section) => section === 'about' },
+  { key: 'contact', to: '/#contact', icon: mailNavIcon, isActive: (_, section) => section === 'contact' },
 ];
 
 const socialLinks = [
@@ -52,6 +56,7 @@ export default function Sidebar() {
   const location = useLocation();
   const { path, to } = useLocale();
   const [menuOpen, setMenuOpen] = useState(false);
+  const section = useActiveSection(SECTION_IDS, path === '/');
 
   useEffect(() => {
     setMenuOpen(false);
@@ -112,12 +117,12 @@ export default function Sidebar() {
         <nav aria-label={t('nav.main')}>
           <ul className="flex flex-col gap-2 short:gap-1">
             {navItems.map((item) => {
-              const active = item.isActive?.(path, location.hash) ?? false;
+              const active = item.isActive(path, section);
               return (
                 <li key={item.key}>
                   <Link
                     to={to(item.to)}
-                    aria-current={active ? 'page' : undefined}
+                    aria-current={active ? 'true' : undefined}
                     className={`${navItemBase} ${active ? navItemActive : navItemIdle}`}
                   >
                     <span
@@ -125,7 +130,13 @@ export default function Sidebar() {
                       className={`absolute top-1/2 left-0 h-4 w-0.5 -translate-y-1/2 rounded-[1px] bg-accent transition-[scale] duration-200 ${active ? 'scale-y-100' : 'scale-y-0 group-hover:scale-y-100'}`}
                     />
                     {active ? (
-                      <img src={item.activeIcon} alt="" width="20" height="20" />
+                      <img
+                        className={item.activeIcon ? undefined : 'brightness-0 invert'}
+                        src={item.activeIcon ?? item.icon}
+                        alt=""
+                        width="20"
+                        height="20"
+                      />
                     ) : (
                       <MutedIcon src={item.icon} size="20" />
                     )}

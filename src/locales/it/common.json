@@ -20,9 +20,6 @@
     "pitchTitle": "Sviluppo applicazioni web scalabili e centrate sull’utente.",
     "resumeLink": "Vedi CV / GitHub >",
     "portraitAlt": "Ritratto di {{name}}",
-    "featuredTitle": "Progetti in evidenza",
-    "selectedWork": "Lavori selezionati",
-    "allProjects": "Tutti i progetti",
     "aboutTitle": "Chi sono & competenze",
     "expertiseTitle": "Competenze tecniche & stack",
     "aboutMe": "Chi sono",
@@ -33,9 +30,7 @@
     "copied": "Copiato ✓"
   },
   "projects": {
-    "backHome": "Torna alla home",
-    "archive": "ARCHIVIO PROGETTI / {{number}}",
-    "title": "Tutti i progetti",
+    "title": "Progetti",
     "intro": "Un archivio completo di applicazioni web, progetti full-stack e progetti personali concreti."
   },
   "card": {
@@ -44,7 +39,7 @@
     "liveApp": "{{title}}: app online"
   },
   "caseStudy": {
-    "back": "Torna a tutti i progetti",
+    "back": "Torna ai progetti",
     "keyDetails": "Dati principali",
     "role": "RUOLO",
     "stack": "STACK TECNOLOGICO",

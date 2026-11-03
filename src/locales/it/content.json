@@ -21,9 +21,7 @@
     "urconnection": {
       "title": "UrConnections — App full-stack",
       "category": "FULL-STACK / APP SOCIAL",
-      "archiveCategory": "FULL-STACK / APPLICAZIONE WEB",
       "summary": "Gruppi di studio e di interesse per tema, luogo e piattaforma. Un monorepo TypeScript con una propria API Express, PostgreSQL, autenticazione e Docker, in self-hosting su un VPS.",
-      "archiveSummary": "Un’app social in self-hosting con una propria API, accesso (e-mail + Google), foto profilo e deploy automatizzato.",
       "caseStudy": {
         "title": "UrConnections — App social full-stack",
         "intro": "Permette di trovare gruppi di studio e di interesse per tema, paese, città e piattaforma (WhatsApp, Discord, Telegram…), di crearne di propri e di gestire il proprio profilo. Ricostruita da un prototipo Supabase in uno stack TypeScript interamente in self-hosting.",
@@ -45,9 +43,7 @@
     "harmonysmiles": {
       "title": "HarmonySmiles — Sistema di prenotazione per studi",
       "category": "FULL-STACK / PRENOTAZIONI SANITARIE",
-      "archiveCategory": "BACK-END / PRENOTAZIONI DELLO STUDIO",
       "summary": "Prenotazione online e dashboard di amministrazione per uno studio dentistico in Svizzera. Ho sviluppato l’API REST in TypeScript con Express e PostgreSQL, il flusso di prenotazione in tempo reale e le pagine di amministrazione, e ho pubblicato tutto su Render.",
-      "archiveSummary": "Un sistema di prenotazione per studio dentistico con fasce orarie in tempo reale, protezione dalle doppie prenotazioni e una dashboard sicura per appuntamenti e pazienti.",
       "caseStudy": {
         "title": "HarmonySmiles — Sistema di prenotazione per studio dentistico",
         "intro": "Prenotazione online degli appuntamenti per uno studio dentistico in Svizzera, con disponibilità in tempo reale per i pazienti e una dashboard sicura in cui il personale gestisce appuntamenti e cartelle dei pazienti. Un progetto di gruppo: ho sviluppato il back-end, il flusso di prenotazione e la dashboard di amministrazione.",
@@ -70,7 +66,6 @@
       "title": "Practical Tasks — Gestione attività",
       "category": "FRONT-END / GESTIONE ATTIVITÀ",
       "summary": "App dinamica per la gestione delle attività realizzata con JavaScript e Tailwind CSS, con salvataggio nel local storage.",
-      "archiveSummary": "Un gestore di attività realizzato con JavaScript e Tailwind, con salvataggio nel local storage.",
       "caseStudy": {
         "title": "Practical Tasks — Gestione attività",
         "intro": "Una soluzione dinamica per la gestione delle attività, senza framework, incentrata sulle prestazioni e sul salvataggio nel local storage.",
