@@ -15,7 +15,6 @@ export default function Projects() {
       <PageHeader
         backTo={to('/')}
         backLabel={t('projects.backHome')}
-        meta={t('projects.archive', { number: String(projects.length).padStart(2, '0') })}
         title={t('projects.title')}
         intro={t('projects.intro')}
       />
