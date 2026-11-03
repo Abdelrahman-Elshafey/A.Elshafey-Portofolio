@@ -1,22 +1,26 @@
-import urconnectionDesktop from '../assets/images/urconnection-desktop.png';
-import logo from '../assets/images/logo.png';
+import urconnectionDesktop from '../assets/images/urconnection-desktop.webp';
+import harmonySmilesDesktop from '../assets/images/harmonysmiles-desktop.webp';
+import logo from '../assets/images/logo.webp';
 
 const mockFrame = 'flex h-[208px] shrink-0 bg-sunken p-3 sm:p-4';
 const appWindow =
   'flex min-w-0 flex-1 overflow-hidden whitespace-nowrap rounded-[4px] border border-line bg-surface text-[6px] text-muted';
 const appSidebar = 'flex w-16 shrink-0 flex-col gap-[15px] border-r border-line p-2.5 sm:w-[82px] sm:p-3';
 
-function UrConnectionPreview() {
+function ScreenshotPreview({ src, alt }) {
   return (
     <div className="aspect-[2.1] shrink-0 overflow-hidden sm:aspect-auto sm:h-[208px]">
-      <img
-        className="size-full object-cover object-top"
-        src={urconnectionDesktop}
-        alt="UrConnections landing page"
-        loading="lazy"
-      />
+      <img className="size-full object-cover object-top" src={src} alt={alt} loading="lazy" />
     </div>
   );
+}
+
+function UrConnectionPreview() {
+  return <ScreenshotPreview src={urconnectionDesktop} alt="UrConnections landing page" />;
+}
+
+function HarmonySmilesPreview() {
+  return <ScreenshotPreview src={harmonySmilesDesktop} alt="HarmonySmiles clinic home page" />;
 }
 
 function TasksDashboardPreview() {
@@ -128,7 +132,7 @@ function PortfolioPreview() {
           </ul>
         </div>
         <div className="flex min-w-0 flex-1 flex-col gap-3.5 p-3.5 sm:p-5">
-          <p className="text-[6px] text-muted">PORTFOLIO V1 / DESIGN STUDY</p>
+          <p className="text-[6px] text-muted">FIGMA → REACT / DESIGN TO CODE</p>
           <p className="font-serif text-[19px] leading-none sm:text-[27px]">
             Thoughtfully designed.
             <br />
@@ -153,6 +157,7 @@ function PortfolioPreview() {
 
 const previews = {
   urconnection: UrConnectionPreview,
+  harmonysmiles: HarmonySmilesPreview,
   'tasks-dashboard': TasksDashboardPreview,
   'tasks-list': TasksListPreview,
   portfolio: PortfolioPreview,

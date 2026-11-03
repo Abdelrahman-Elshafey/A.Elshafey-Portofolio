@@ -1,6 +1,6 @@
 // Small building blocks shared by every page, so the same Tailwind classes
 // aren't repeated in many places.
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { profile } from '../data/profile.js';
 
 const cardBase =

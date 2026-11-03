@@ -1,5 +1,9 @@
-import urconnectionDesktop from '../assets/images/urconnection-desktop.png';
-import urconnectionMobile from '../assets/images/urconnection-mobile.png';
+import urconnectionDesktop from '../assets/images/urconnection-desktop.webp';
+import urconnectionMobile from '../assets/images/urconnection-mobile.webp';
+import harmonySmilesDesktop from '../assets/images/harmonysmiles-desktop.webp';
+import harmonySmilesMobile from '../assets/images/harmonysmiles-mobile.webp';
+import portfolioDesktop from '../assets/images/portfolio-desktop.webp';
+import portfolioMobile from '../assets/images/portfolio-mobile.webp';
 import uploadIcon from '../assets/icons/upload.svg';
 import syncDot from '../assets/icons/sync-dot.svg';
 import moonIcon from '../assets/icons/moon.svg';
@@ -50,6 +54,147 @@ function UrConnectionShowcase() {
             One consistent profile
           </p>
           <p className={panelText}>Account details and profile changes stay in sync across the interface.</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function HarmonySmilesShowcase() {
+  const slots = [
+    ['10:00', false],
+    ['10:30', true],
+    ['11:00', false],
+    ['11:30', false],
+    ['14:00', true],
+    ['14:30', false],
+  ];
+  const statuses = [
+    ['Pending', 'border-line text-muted'],
+    ['Confirmed', 'border-accent/30 bg-accent/10 text-white'],
+    ['Completed', 'border-line text-soft'],
+    ['No Show', 'border-line text-muted'],
+  ];
+
+  return (
+    <div className={`${frame} bg-sunken`}>
+      <div className="group/shot aspect-[16/10] w-full overflow-hidden rounded-lg sm:aspect-auto sm:h-[272px] sm:w-auto sm:flex-[3_1_400px]">
+        <img
+          className={`${zoomImage} object-top`}
+          src={harmonySmilesDesktop}
+          alt="HarmonySmiles clinic home page on desktop"
+          loading="lazy"
+        />
+      </div>
+      <div className="group/shot mx-auto h-[272px] flex-[0_0_156px] overflow-hidden rounded-[20px] border-[3px] border-[#b7b6ae] bg-white sm:mx-0">
+        <img
+          className={`${zoomImage} object-top`}
+          src={harmonySmilesMobile}
+          alt="HarmonySmiles booking form on a phone"
+          loading="lazy"
+        />
+      </div>
+      <div className={aside}>
+        <div className={panel}>
+          <div className={panelHeader}>
+            <p className={panelTitle}>Tue, 12 Nov</p>
+            <p className={panelLabel}>LIVE AVAILABILITY</p>
+          </div>
+          <div className="grid grid-cols-3 gap-1.5">
+            {slots.map(([time, booked]) => (
+              <span
+                key={time}
+                className={`rounded-[5px] border px-1 py-1.5 text-center text-[9px] transition-colors ${
+                  booked
+                    ? 'border-line text-faint line-through'
+                    : 'border-line text-soft group-hover:border-accent/30 group-hover:text-white'
+                }`}
+              >
+                {time}
+              </span>
+            ))}
+          </div>
+          <p className={panelLabel}>30-MIN SLOTS · ZURICH TIME · NO DOUBLE BOOKING</p>
+        </div>
+        <div className={panel}>
+          <div className={panelHeader}>
+            <p className={panelTitle}>Appointment status</p>
+            <p className={panelLabel}>ADMIN</p>
+          </div>
+          <div className="flex flex-wrap gap-1.5">
+            {statuses.map(([label, tone]) => (
+              <span key={label} className={`rounded-[5px] border px-2 py-1 text-[9px] ${tone}`}>
+                {label}
+              </span>
+            ))}
+          </div>
+          <p className={panelText}>Completed and no-show can only be set once the visit time has passed.</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function PortfolioShowcase() {
+  const tokens = [
+    ['page', 'bg-page'],
+    ['surface', 'bg-surface'],
+    ['line', 'bg-line'],
+    ['muted', 'bg-muted'],
+    ['accent', 'bg-accent'],
+  ];
+  const breakpoints = [
+    ['Phone', 'top bar + menu'],
+    ['Tablet', '2-column grids'],
+    ['Desktop', 'fixed sidebar'],
+    ['Wide', 'centered content'],
+  ];
+
+  return (
+    <div className={`${frame} bg-[#242622]`}>
+      <div className="group/shot aspect-[16/10] w-full overflow-hidden rounded-lg sm:aspect-auto sm:h-[272px] sm:w-auto sm:flex-[3_1_400px]">
+        <img
+          className={`${zoomImage} object-top`}
+          src={portfolioDesktop}
+          alt="Portfolio home page on desktop"
+          loading="lazy"
+        />
+      </div>
+      <div className="group/shot mx-auto h-[272px] flex-[0_0_156px] overflow-hidden rounded-[20px] border-[3px] border-[#b7b6ae] bg-page sm:mx-0">
+        <img className={`${zoomImage} object-top`} src={portfolioMobile} alt="Portfolio home page on a phone" loading="lazy" />
+      </div>
+      <div className={aside}>
+        <div className={panel}>
+          <div className={panelHeader}>
+            <p className={panelTitle}>Design tokens</p>
+            <p className={panelLabel}>FIGMA → TAILWIND</p>
+          </div>
+          <div className="flex gap-1.5">
+            {tokens.map(([name, swatch]) => (
+              <div key={name} className="flex flex-1 flex-col items-center gap-1">
+                <span className={`h-6 w-full rounded-[4px] border border-line ${swatch}`} />
+                <span className="text-[8px] text-muted">{name}</span>
+              </div>
+            ))}
+          </div>
+          <p className="flex items-baseline justify-between gap-2 border-t border-line pt-2">
+            <span className="font-serif text-[18px] leading-none">Aa</span>
+            <span className="text-[8px] text-muted">CORMORANT GARAMOND · INTER</span>
+          </p>
+        </div>
+        <div className={panel}>
+          <div className={panelHeader}>
+            <p className={panelTitle}>One design, every screen</p>
+            <p className={panelLabel}>RESPONSIVE</p>
+          </div>
+          <ul className="flex flex-col gap-1.5">
+            {breakpoints.map(([size, behaviour]) => (
+              <li key={size} className="flex justify-between gap-2 text-[9px]">
+                <span className="text-soft">{size}</span>
+                <span className="text-muted">{behaviour}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>
@@ -156,7 +301,9 @@ function PracticalTasksShowcase() {
 
 const showcases = {
   urconnection: UrConnectionShowcase,
+  harmonysmiles: HarmonySmilesShowcase,
   'practical-tasks': PracticalTasksShowcase,
+  portfolio: PortfolioShowcase,
 };
 
 export default function CaseStudyShowcase({ type }) {

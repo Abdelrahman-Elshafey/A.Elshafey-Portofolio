@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router';
 import { MutedIcon, Underline } from './ui.jsx';
 import { profile } from '../data/profile.js';
-import logo from '../assets/images/logo.png';
+import logo from '../assets/images/logo.webp';
 import houseIcon from '../assets/icons/house.svg';
 import houseActiveIcon from '../assets/icons/house-active.svg';
 import layersIcon from '../assets/icons/layers.svg';
@@ -12,7 +12,6 @@ import mailNavIcon from '../assets/icons/mail-nav.svg';
 import activeDot from '../assets/icons/active-dot.svg';
 import linkedinIcon from '../assets/icons/linkedin.svg';
 import githubIcon from '../assets/icons/github-social.svg';
-import mailIcon from '../assets/icons/mail-social.svg';
 
 const MOBILE_QUERY = '(max-width: 960px)';
 

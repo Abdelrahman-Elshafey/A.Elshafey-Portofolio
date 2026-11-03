@@ -1,3 +1,19 @@
+# Dependencies and build output
 node_modules
 dist
+
+# Local-only environment files (secrets never go in .env, which is committed)
+.env.local
+.env.*.local
+
+# Vercel CLI
+.vercel
+
+# Logs and OS / editor files
+*.log
+npm-debug.log*
 .DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea

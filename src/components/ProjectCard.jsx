@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import ProjectPreview from './ProjectPreview.jsx';
 import { ArrowIcon, IconButton, TagList, cardClasses } from './ui.jsx';
 import githubIcon from '../assets/icons/github.svg';

@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import ProjectCard from '../components/ProjectCard.jsx';
 import { ArrowIcon, Card, PageFooter, PillLink, TagList, Underline } from '../components/ui.jsx';
 import { highlights, profile, skillGroups } from '../data/profile.js';
 import { featuredProjects } from '../data/projects.js';
 import { usePageMeta } from '../lib/usePageMeta.js';
-import portrait from '../assets/images/portrait.png';
+import portrait from '../assets/images/portrait.webp';
 import statusDot from '../assets/icons/status-dot.svg';
 import arrowRed from '../assets/icons/arrow-red.svg';
 import arrowWhite from '../assets/icons/arrow-white.svg';

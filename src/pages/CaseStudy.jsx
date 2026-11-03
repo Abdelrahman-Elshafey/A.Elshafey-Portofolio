@@ -1,4 +1,4 @@
-import { Link, Navigate, useParams } from 'react-router-dom';
+import { Link, Navigate, useParams } from 'react-router';
 import CaseStudyShowcase from '../components/CaseStudyShowcase.jsx';
 import { ArrowIcon, Card, PageFooter, PageHeader, PillLink, TagList, cardClasses } from '../components/ui.jsx';
 import { getProject, projects } from '../data/projects.js';
